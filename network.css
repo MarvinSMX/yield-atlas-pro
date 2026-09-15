@@ -51,6 +51,19 @@ body {
 a { color: #1A3C34 !important; }
 a:hover { color: #C2410C !important; }
 
+/* Full-bleed bands: outer wrappers span the viewport; inner shells stay 94%/1400 */
+header, .nx-header, body > header:not(.nx-skip),
+.site-network-bar, .deal-banner, .hero, .nx-hero, .main-h1,
+.section, .features-section, .comparison-section, .faq-section,
+.disclaimer-bar, .ad-band, .sponsor-strip, .footer-band {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+  align-self: stretch !important;
+}
+
 header, .nx-header, body > header:not(.nx-skip) {
   width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
   text-align: center !important; padding: 18px 20px 14px !important;
@@ -110,11 +123,11 @@ header, .nx-header, body > header:not(.nx-skip) {
 .hero-stat-val { font-family: "Merriweather", Georgia, serif !important; font-size: 1.6em !important; font-weight: 900 !important; color: #C2410C !important; }
 .hero-stat-lbl { font-size: 0.62em !important; font-weight: 700 !important; text-transform: uppercase !important; color: #666666 !important; margin-top: 5px !important; }
 
+/* Inner content shell only — never put BG wrappers (section/hero/header) here */
 .content, .nx-shell, .container, .wrap, #etfTableWrapper,
 .hero-container, .header-container, .deal-banner-inner,
-.pricing-container, .features-section, .comparison-section,
-.faq-section, .shot-wrap, .section-inner, .section-container,
-.proof-inner, .features-grid, .comparison-table-wrap {
+.pricing-container, .shot-wrap, .section-inner, .section-container,
+.proof-inner {
   width: 94% !important; max-width: 1400px !important; margin-left: auto !important; margin-right: auto !important;
   box-sizing: border-box !important;
 }
