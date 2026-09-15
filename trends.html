@@ -288,7 +288,7 @@ footer a:hover{color:var(--accent)}
 (function(){
 /* ═══════════ CONFIG ═══════════ */
 var HISTORY_PATH = 'data/history.json';
-var CSV_URL = 'data/seed.csv';
+var CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTxCiod-Cwry7E6k9Un9dgrM_ANymC36_IO_wLyNj-YDo2KI7mp_1ZzyNBnBGZOxT48QPM8TCwtsmA4/pub?gid=0&single=true&output=csv';
 
 var C_SYMBOL = 0, C_NAME = 1, C_YIELD = 3, C_TR = 7, C_FREQ = 10;
 var TOP_N = 15;
@@ -387,7 +387,7 @@ Promise.all([
     if(!r.ok){ histError='HTTP '+r.status+' fetching '+HISTORY_PATH; return null; }
     return r.json().catch(function(e){ histError='File found but is not valid JSON ('+e.message+')'; return null; });
   }).catch(function(e){ histError='Network error: '+e.message; return null; }),
-  fetch(CSV_URL + '?t='+Date.now()).then(function(r){ return r.ok?r.text():''; }).catch(function(){ return ''; })
+  fetch(CSV_URL + '&t='+Date.now()).then(function(r){ return r.ok?r.text():''; }).catch(function(){ return ''; })
 ]).then(function(res){
   if(res[1]){
     var lines=res[1].trim().split('\n');

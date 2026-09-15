@@ -1142,7 +1142,7 @@
     </div>
 
     <script>
-        const CSV_URL = "data/seed.csv";
+        const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxCiod-Cwry7E6k9Un9dgrM_ANymC36_IO_wLyNj-YDo2KI7mp_1ZzyNBnBGZOxT48QPM8TCwtsmA4/pub?gid=0&single=true&output=csv";
 
         // How many years an ETF must have existed before we show an annualized figure.
         // Below this, annualizing a short track record produces misleading numbers,
@@ -1212,7 +1212,7 @@
         });
 
         function loadData() {
-            fetch(CSV_URL + '?t=' + Date.now())
+            fetch(CSV_URL + '&t=' + Date.now())
                 .then(r => r.text())
                 .then(txt => renderTable(txt))
                 .catch(() => {

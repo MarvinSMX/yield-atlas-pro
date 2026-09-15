@@ -21,7 +21,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CSV_URL = "data/seed.csv";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxCiod-Cwry7E6k9Un9dgrM_ANymC36_IO_wLyNj-YDo2KI7mp_1ZzyNBnBGZOxT48QPM8TCwtsmA4/pub?gid=0&single=true&output=csv";
 const HISTORY_PATH = path.join(__dirname, 'data', 'history.json');
 
 // Column indices match the PRO Terminal table:
@@ -61,7 +61,7 @@ function todayCentral() {
 }
 
 async function main() {
-  const res = await fetch(CSV_URL + '?t=' + Date.now());
+  const res = await fetch(CSV_URL + '&t=' + Date.now());
   if (!res.ok) throw new Error('Failed to fetch CSV: ' + res.status);
   const csvText = await res.text();
   const rows = parseCsv(csvText);
