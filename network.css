@@ -52,9 +52,9 @@ body {
 a { color: #1A3C34 !important; }
 a:hover { color: #C2410C !important; }
 
-/* Solid brand header — no glass / blur / gradients */
-header, .nx-header, body > header:not(.nx-skip) {
-  width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
+/* Solid brand header — light ink on dark (never brand-on-brand) */
+header, .nx-header, .site-header, body > header:not(.nx-skip) {
+  width: 100% !important; align-self: stretch !important; background: #1A3C34 !important; color: #ffffff !important;
   text-align: center !important; padding: 18px 20px 14px !important;
   border-bottom: 3px solid #C2410C !important; box-shadow: none !important;
   backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
@@ -64,9 +64,10 @@ header, .nx-header, body > header:not(.nx-skip) {
   width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
   border-bottom: 2px solid #C2410C !important; background-image: none !important;
 }
-.logo, .nx-logo, .logo-text, .logo-link .logo {
+.logo, .nx-logo, .logo-text, .logo-link, .logo-link .logo, .header-logo, a.logo-link {
   font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
   font-size: clamp(22px, 5.5vw, 38px) !important; color: #ffffff !important; line-height: 1.1 !important;
+  text-decoration: none !important;
 }
 .logo span, .nx-logo span { color: #C2410C !important; }
 .logo-sub, .nx-tagline {
@@ -74,12 +75,18 @@ header, .nx-header, body > header:not(.nx-skip) {
   text-transform: uppercase !important; color: rgba(255,255,255,0.75) !important; margin-top: 4px !important;
 }
 .header-links, .nx-nav { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; justify-content: center !important; margin-top: 14px !important; }
-.header-link, .nx-nav a, .btn-ghost {
+header a, .site-header a, .header-links a, .header-link, .nx-nav a, .btn-ghost,
+.header-cta, a.header-cta, .header-pro-btn, .nav-cta {
   display: inline-flex !important; padding: 8px 16px !important; border: 2px solid #C2410C !important;
   border-radius: 4px !important; background: transparent !important; color: #ffffff !important;
   font-weight: 900 !important; font-size: 13px !important; text-decoration: none !important;
 }
-.header-link:hover, .nx-nav a:hover { background: #C2410C !important; color: #ffffff !important; }
+header a.logo-link, a.logo-link {
+  display: inline-block !important; border: none !important; background: transparent !important; padding: 0 !important; color: #ffffff !important;
+}
+header a:hover, .header-links a:hover, .header-link:hover, .nx-nav a:hover,
+.header-cta:hover, .nav-cta:hover { background: #C2410C !important; color: #ffffff !important; }
+.network-bar { display: none !important; }
 
 .site-network-bar { width: 100% !important; background: #ffffff !important; border-bottom: 1px solid #dddddd !important; padding: 5px 0 !important; }
 .site-network-track {
@@ -123,18 +130,45 @@ header, .nx-header, body > header:not(.nx-skip) {
 .hero .cta-sub { color: #555555 !important; }
 .intro-text *, .top-disclaimer *, .hero-desc *, .subhead * { color: inherit !important; }
 
-/* Solid section / CTA / footer bands — no multi-stop washes */
+/* Solid section / CTA / footer bands — no multi-stop washes.
+   Sections must stretch full viewport width under body { align-items: center }. */
 .section, .section-dark, .section-gradient, .video-demo-section, .features-section,
-.comparison-section, .faq-section, .pricing-section, .proof-strip {
+.comparison-section, .faq-section, .pricing-section, .proof-strip,
+.cta-section, #features, #comparison, #pricing {
+  width: 100% !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
   background: #ffffff !important; background-image: none !important; color: #222222 !important;
 }
 .section-dark, .section-gradient, .proof-strip { background: #faf8f5 !important; }
+.proof-strip {
+  width: 100% !important; align-self: stretch !important;
+}
+.proof-inner {
+  display: flex !important; flex-wrap: nowrap !important; justify-content: space-around !important;
+  align-items: center !important; gap: clamp(10px, 2vw, 24px) !important;
+  overflow-x: auto !important; -webkit-overflow-scrolling: touch !important;
+  text-align: center !important;
+}
+.proof-item { flex: 1 0 auto !important; min-width: 0 !important; }
+.proof-item .n { font-size: clamp(18px, 2.4vw, 30px) !important; }
+.proof-item .l { font-size: clamp(10px, 1.1vw, 12px) !important; }
+.comp-wrap {
+  width: 100% !important; max-width: 100% !important; overflow-x: auto !important;
+}
+.comparison-table { width: 100% !important; min-width: 640px !important; }
 .cta-section, footer, .footer-band {
-  width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
+  width: 100% !important; align-self: stretch !important; background: #1A3C34 !important; color: #ffffff !important;
   background-image: none !important;
 }
-.cta-section h2, .cta-section p, footer p, footer a { color: #ffffff !important; }
-footer a:hover { color: #FDE68A !important; }
+.cta-section h2, .cta-section p, footer p { color: #ffffff !important; }
+/* Dark brand footer — links must stay readable (not #1A3C34 on #1A3C34) */
+footer a, .footer a, .footer-content a, .footer-band a {
+  color: #FDE68A !important; font-weight: 700 !important;
+}
+footer a:hover, .footer a:hover, .footer-content a:hover, .footer-band a:hover {
+  color: #ffffff !important;
+}
 footer::before, .cta-section::before { display: none !important; }
 .nav-cta, .cta-btn, .cta-button, a.cta-btn {
   background: #C2410C !important; background-image: none !important; color: #ffffff !important;
@@ -215,12 +249,24 @@ footer::before, .cta-section::before { display: none !important; }
 }
 
 .disclaimer, .disclaimer-bar, .table-meta, .loading, .col-name, .banner-label, .banner-legal, .site-network-label,
-.intro-text, .top-disclaimer, .subhead, .az-sub, .hub-link, footer, .footer {
+.intro-text, .top-disclaimer, .subhead, .az-sub, .hub-link {
   color: #555555 !important;
 }
 .disclaimer-bar { width: 100% !important; background: rgba(194, 65, 12, 0.08) !important; border-bottom: 1px solid #dddddd !important; padding: 0.5rem 1rem !important; }
-.footer, footer { width: 90% !important; max-width: 900px !important; margin: 16px auto 28px !important; text-align: center !important; border-top: 1px solid #dddddd !important; padding-top: 12px !important; font-size: 0.85em !important; line-height: 1.9 !important; }
-.footer a, footer a { color: #1A3C34 !important; font-weight: 700 !important; }
+/* PRO dark footer band — full bleed; keep muted body copy light, links gold (above) */
+.footer, footer {
+  width: 100% !important; max-width: none !important; align-self: stretch !important;
+  margin: 0 !important; text-align: center !important; border-top: none !important;
+  padding: 50px 20px !important; font-size: 0.85em !important; line-height: 1.9 !important;
+  background: #1A3C34 !important; color: #ffffff !important;
+}
+.footer p, footer p { color: rgba(255, 255, 255, 0.85) !important; }
+.footer a, footer a, .footer-content a {
+  color: #FDE68A !important; font-weight: 700 !important;
+}
+.footer a:hover, footer a:hover, .footer-content a:hover {
+  color: #ffffff !important;
+}
 .back-to-top { background: #1A3C34 !important; color: #ffffff !important; border-radius: 4px !important; padding: 8px 20px !important; border: none !important; font-weight: 700 !important; }
 .vote-count, #voteMsg { color: #C2410C !important; font-weight: 700 !important; }
 .stars, .orb, body::before { display: none !important; }

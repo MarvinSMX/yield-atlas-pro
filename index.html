@@ -918,9 +918,12 @@ input[type="text"], select {
 
         /* ==================== PROOF STRIP ==================== */
         .proof-strip {
+            width: 100%;
+            align-self: stretch;
             background: var(--primary-dark);
             color: #fff;
             padding: 26px 20px;
+            box-sizing: border-box;
         }
 
         .proof-inner {
@@ -928,20 +931,23 @@ input[type="text"], select {
             margin: 0 auto;
             display: flex;
             justify-content: space-around;
-            gap: 24px;
-            flex-wrap: wrap;
+            gap: clamp(10px, 2vw, 24px);
+            flex-wrap: nowrap;
+            overflow-x: auto;
             text-align: center;
         }
 
+        .proof-item { flex: 1 0 auto; }
+
         .proof-item .n {
-            font-size: 30px;
+            font-size: clamp(18px, 2.4vw, 30px);
             font-weight: 900;
             color: var(--yellow);
             line-height: 1.1;
         }
 
         .proof-item .l {
-            font-size: 12px;
+            font-size: clamp(10px, 1.1vw, 12px);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.2px;
@@ -951,6 +957,9 @@ input[type="text"], select {
 
         /* ==================== SECTION STYLES ==================== */
         .section {
+            width: 100%;
+            align-self: stretch;
+            box-sizing: border-box;
             padding: 60px 20px;
             position: relative;
             overflow: hidden;
@@ -963,10 +972,12 @@ input[type="text"], select {
         .section::before { display: none; }
 
         .section-container {
-            max-width: none;
+            width: 94%;
+            max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            box-sizing: border-box;
         }
 
         .kicker {
@@ -999,6 +1010,9 @@ input[type="text"], select {
 
         /* Video Demo Section */
         .video-demo-section {
+            width: 100%;
+            align-self: stretch;
+            box-sizing: border-box;
             padding: 80px 20px;
             background: #FFFFFF;
             text-align: center;
@@ -1153,10 +1167,11 @@ input[type="text"], select {
         }
 
         /* ==================== COMPARISON TABLE ==================== */
-        .comp-wrap { overflow-x: auto; }
+        .comp-wrap { width: 100%; max-width: 100%; overflow-x: auto; }
 
         .comparison-table {
             width: 100%;
+            min-width: 640px;
             border-collapse: collapse;
             margin-top: 40px;
             background: rgba(255, 255, 255, 0.95);
@@ -1563,7 +1578,7 @@ input[type="text"], select {
         }
 
         footer a {
-            color: #5EEAD4;
+            color: #FDE68A;
             text-decoration: none;
             transition: all 0.3s;
             font-weight: 700;
@@ -1779,8 +1794,11 @@ tr:nth-child(even) {
 .yield, .decay, td:before, .tracker-link {
   color: #C2410C !important;
 }
-.footer a, footer a, a.tracker-link {
-  color: #C2410C !important;
+.footer a, footer a, .footer-content a, a.tracker-link {
+  color: #FDE68A !important;
+}
+footer a:hover, .footer a:hover, .footer-content a:hover {
+  color: #ffffff !important;
 }
 .stat, .faq, .rel, .info-card, .card, .panel {
   background: #FFFFFF !important;
