@@ -15,8 +15,8 @@
   --surface: #ffffff !important;
   --ink: #222222 !important;
   --muted: #555555 !important;
-  --shell: 94% !important;
-  --shell-max: 1400px !important;
+  --shell: 100% !important;
+  --shell-max: none !important;
   --radius: 8px !important;
   --btn-radius: 999px !important;
   --primary: var(--accent) !important;
@@ -59,7 +59,7 @@ header, .nx-header, body > header:not(.nx-skip) {
 .header-link:hover, .nx-nav a:hover { background: #D4A574 !important; color: #3A1520 !important; }
 
 .site-network-bar { width: 100% !important; background: #ffffff !important; border-bottom: 1px solid #dddddd !important; padding: 5px 0 !important; }
-.site-network-track { width: 94% !important; max-width: 1400px !important; margin: 0 auto !important; padding: 0 15px !important; display: flex !important; align-items: center !important; gap: 5px !important; overflow-x: auto !important; white-space: nowrap !important; }
+.site-network-track { width: 100% !important; max-width: none !important; margin: 0 auto !important; padding: 0 clamp(12px, 2vw, 40px) !important; display: flex !important; align-items: center !important; gap: 5px !important; overflow-x: auto !important; white-space: nowrap !important; }
 .site-network-label { font-size: 0.56em !important; font-weight: 900 !important; text-transform: uppercase !important; color: #666666 !important; flex-shrink: 0 !important; }
 .site-pill { display: inline-flex !important; padding: 3.5px 8px !important; border-radius: 999px !important; border: 1px solid #3A1520 !important; background: #fff !important; color: #3A1520 !important; font-size: 0.62em !important; font-weight: 700 !important; text-decoration: none !important; flex-shrink: 0 !important; }
 .site-pill:hover, .site-pill.current { background: #3A1520 !important; color: #D4A574 !important; border-color: #3A1520 !important; }
@@ -77,7 +77,30 @@ header, .nx-header, body > header:not(.nx-skip) {
 .main-h1 h1 { color: #3A1520 !important; font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important; }
 .intro-text, .top-disclaimer, .subhead { color: #333333 !important; }
 
-.content, .nx-shell, .container, .wrap, #etfTableWrapper { width: 94% !important; max-width: 1400px !important; margin-left: auto !important; margin-right: auto !important; }
+.content, .nx-shell, .container, .wrap, #etfTableWrapper,
+.hero-container, .header-container, .deal-banner-inner,
+.pricing-container, .features-section, .comparison-section,
+.faq-section, .shot-wrap, .section-inner, .section-container,
+.proof-inner, .features-grid, .comparison-table-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+  padding-left: clamp(16px, 3vw, 48px) !important;
+  padding-right: clamp(16px, 3vw, 48px) !important;
+}
+.footer, footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 16px auto 28px !important;
+  text-align: center !important;
+  border-top: 1px solid #dddddd !important;
+  padding: 12px clamp(16px, 3vw, 48px) !important;
+  font-size: 0.85em !important;
+  line-height: 1.9 !important;
+  box-sizing: border-box !important;
+}
 .section-head { text-align: center !important; margin: 32px 0 8px !important; }
 .section-head h2 { font-family: "Merriweather", Georgia, serif !important; color: #3A1520 !important; font-weight: 900 !important; }
 .section-head p { color: #555555 !important; }
@@ -119,8 +142,27 @@ header, .nx-header, body > header:not(.nx-skip) {
 }
 
 .disclaimer, .table-meta, .loading, .site-network-label, footer, .footer { color: #555555 !important; }
-.footer, footer { width: 90% !important; max-width: 900px !important; margin: 16px auto 28px !important; text-align: center !important; border-top: 1px solid #dddddd !important; padding-top: 12px !important; font-size: 0.85em !important; line-height: 1.9 !important; }
 .footer a { color: #3A1520 !important; font-weight: 700 !important; }
 .back-to-top { background: #3A1520 !important; color: #ffffff !important; border-radius: 999px !important; padding: 8px 22px !important; border: none !important; font-weight: 700 !important; }
 .vote-count, #voteMsg { color: #3A1520 !important; font-weight: 700 !important; }
 .stars, .orb, body::before { display: none !important; }
+
+/* Share / Post — readable on light canvas */
+.share-buttons { display: flex !important; gap: 12px !important; justify-content: center !important; flex-wrap: wrap !important; margin: 18px auto 8px !important; }
+.share-btn, a.share-btn {
+  display: inline-flex !important; align-items: center !important; gap: 6px !important;
+  padding: 8px 14px !important; border-radius: 8px !important;
+  font-weight: 800 !important; font-size: 0.85em !important; text-decoration: none !important;
+  color: #222222 !important; background: #ffffff !important;
+  border: 1.5px solid #3A1520 !important; box-shadow: none !important;
+}
+.share-btn:hover, a.share-btn:hover {
+  background: #f6f2f0 !important; color: #111111 !important; border-color: #D4A574 !important;
+}
+.share-btn.fb, a.share-btn.fb, .fb.share-btn {
+  color: #1877F2 !important; border-color: #1877F2 !important; background: #ffffff !important;
+}
+.share-btn.x, a.share-btn.x, .x.share-btn, .share-btn.xbtn, a.share-btn.xbtn {
+  color: #111111 !important; border-color: #111111 !important; background: #ffffff !important;
+}
+.share-btn svg { width: 15px !important; height: 15px !important; fill: currentColor !important; }
