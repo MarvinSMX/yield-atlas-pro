@@ -115,11 +115,17 @@ header a:hover, .header-links a:hover, .header-link:hover, .nx-nav a:hover,
   font-size: clamp(1.45em, 3.8vw, 2.3em) !important; color: #1A3C34 !important; margin: 0 0 12px !important;
 }
 .hero h1 span, .nx-hero h1 span, .main-h1 h1 span, .hero .hl, .hl { color: #C2410C !important; }
-.hero .subtitle, .hero .hero-tagline, .hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead {
+.hero .subtitle, .hero .hero-tagline, .hero-desc, .hero-subtitle, .nx-support, .intro-text, .top-disclaimer, .subhead,
+.hero p, .hero-content p, .hero-faq-line {
   max-width: 720px !important; margin: 0 auto 20px !important;
   color: #333333 !important; font-size: 0.94em !important; line-height: 1.7 !important;
 }
-.hero .subtitle strong, .hero .hero-tagline strong, .intro-text strong, .top-disclaimer strong { color: #222222 !important; }
+.hero .subtitle strong, .hero .hero-tagline strong, .intro-text strong, .top-disclaimer strong,
+.hero-faq-line, .hero-faq-line strong { color: #222222 !important; }
+.hero-faq-line a, .hero p a, .hero-content p a {
+  color: #1A3C34 !important; font-weight: 900 !important; text-decoration: underline !important;
+}
+.hero-faq-line a:hover, .hero p a:hover { color: #C2410C !important; }
 .hero .pre-head {
   color: #C2410C !important; border-color: #C2410C !important; background: #ffffff !important;
 }
@@ -128,7 +134,8 @@ header a:hover, .header-links a:hover, .header-link:hover, .nx-nav a:hover,
   backdrop-filter: none !important;
 }
 .hero .cta-sub { color: #555555 !important; }
-.intro-text *, .top-disclaimer *, .hero-desc *, .subhead * { color: inherit !important; }
+.intro-text *, .top-disclaimer *, .hero-desc *, .subhead *, .hero-subtitle *, .hero p *, .hero-content p * { color: inherit !important; }
+.hero-faq-line a { color: #1A3C34 !important; }
 
 /* Solid section / CTA / footer bands — no multi-stop washes.
    Sections must stretch full viewport width under body { align-items: center }. */
@@ -230,16 +237,58 @@ footer::before, .cta-section::before { display: none !important; }
 .chip-label { color: #555555 !important; font-weight: 700 !important; }
 
 #etfTable, table.etf-table, .peer-table, table {
-  width: 100% !important; border-collapse: collapse !important; background: #ffffff !important;
+  width: 100% !important; max-width: 100% !important; min-width: 0 !important;
+  table-layout: fixed !important; border-collapse: collapse !important; background: #ffffff !important;
   border: 2px solid #1A3C34 !important; box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
 }
 #etfTable th, table th, thead th {
   background: #1A3C34 !important; color: #ffffff !important; font-weight: 700 !important;
-  font-size: 0.74em !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; padding: 12px 10px !important;
+  font-size: 0.62em !important; letter-spacing: 0.02em !important; text-transform: uppercase !important;
+  padding: 8px 3px !important; white-space: normal !important; word-break: break-word !important;
+  overflow-wrap: anywhere !important; line-height: 1.25 !important; vertical-align: bottom !important;
 }
-#etfTable td, table td { padding: 10px !important; color: #222222 !important; border-bottom: 1px solid #eee !important; text-align: center !important; }
+#etfTable td, table td {
+  padding: 7px 3px !important; color: #222222 !important; border-bottom: 1px solid #eee !important;
+  text-align: center !important; font-size: 0.72em !important; line-height: 1.3 !important;
+  word-break: break-word !important; overflow-wrap: anywhere !important;
+}
 #etfTable tbody tr:nth-child(even) { background: #faf8f5 !important; }
-.symbol, .symbol a, .col-ticker a { color: #1A3C34 !important; font-weight: 900 !important; text-decoration: none !important; }
+.symbol, .symbol a, .col-ticker a { color: #1A3C34 !important; font-weight: 900 !important; text-decoration: none !important; font-size: 0.95em !important; }
+#etfTable .name, #etfTable td.name, #etfTable .col-name, td.name {
+  text-align: left !important; word-break: break-word !important; overflow-wrap: anywhere !important;
+}
+.table-wrap, #etfTableWrapper {
+  width: 100% !important; max-width: 100% !important; overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 769px) {
+  .table-wrap, #etfTableWrapper { overflow-x: hidden !important; }
+  #etfTable { min-width: 0 !important; }
+}
+@media (max-width: 768px) {
+  .table-wrap { overflow-x: visible !important; }
+  #etfTable { table-layout: auto !important; }
+}
+
+/* Trends CTA — solid brand, light text (beats global a{} dark ink) */
+a.trends-cta, .trends-cta {
+  background: #1A3C34 !important; background-image: none !important;
+  color: #ffffff !important; border: 2px solid #C2410C !important;
+  box-shadow: none !important;
+}
+a.trends-cta:hover, .trends-cta:hover {
+  background: #122C26 !important; color: #ffffff !important;
+}
+.trends-cta::before { display: none !important; }
+.trends-cta, .trends-cta *, .trends-cta-text, .trends-cta-text strong, .trends-cta-text small, .trends-cta-go {
+  color: #ffffff !important;
+}
+.trends-cta-go {
+  background: #C2410C !important; border-color: #C2410C !important; color: #ffffff !important;
+}
+.trends-cta:hover .trends-cta-go {
+  background: #EA580C !important; border-color: #EA580C !important; color: #ffffff !important;
+}
 
 .ad-slot.leaderboard, .leaderboard-ad {
   width: 100% !important; max-width: 970px !important; margin: 18px auto 24px !important; min-height: 90px !important;
@@ -280,10 +329,11 @@ body > h1, .content > h1, .main-h1, .main-h1 h1, h1 {
 }
 .hero h1 span, .nx-hero h1 span, .main-h1 h1 span { color: #C2410C !important; }
 .hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead,
-.hero-desc *, .intro-text *, .nx-support * {
+.hero-desc *, .intro-text *, .nx-support *, .hero-subtitle, .hero p, .hero-content p, .hero-faq-line {
   color: #333333 !important;
 }
-.intro-text strong, .hero-desc strong, .top-disclaimer strong { color: #222222 !important; }
+.intro-text strong, .hero-desc strong, .top-disclaimer strong, .hero-faq-line { color: #222222 !important; }
+.hero-faq-line a, .hero p a { color: #1A3C34 !important; }
 
 /* Share / Post — readable on light canvas */
 .share-buttons { display: flex !important; gap: 12px !important; justify-content: center !important; flex-wrap: wrap !important; margin: 18px auto 8px !important; }
