@@ -112,7 +112,11 @@ header a:hover, .header-links a:hover, .header-link:hover, .nx-nav a:hover,
 .hero::after, .section::after, .cta-section::after { display: none !important; }
 .hero h1, .nx-hero h1, .main-h1 h1, body > h1, .content > h1 {
   font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
-  font-size: clamp(1.45em, 3.8vw, 2.3em) !important; color: #1A3C34 !important; margin: 0 0 12px !important;
+  font-size: clamp(1.45em, 3.8vw, 2.3em) !important; color: #1A3C34 !important;
+  margin: 0 auto 12px !important; text-align: center !important;
+}
+.hero-content {
+  text-align: center !important;
 }
 .hero h1 span, .nx-hero h1 span, .main-h1 h1 span, .hero .hl, .hl { color: #C2410C !important; }
 .hero .subtitle, .hero .hero-tagline, .hero-desc, .hero-subtitle, .nx-support, .intro-text, .top-disclaimer, .subhead,
