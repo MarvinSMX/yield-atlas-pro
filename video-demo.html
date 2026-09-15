@@ -525,32 +525,30 @@ input[type="text"], select {
             font-family: 'Syne', Arial, sans-serif;
             line-height: 1.7;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #111827 0%, #F0F9FF 50%, #F5F3FF 100%);
+            background: #f2f4f0;
             overflow-x: hidden;
         }
 
         /* ==================== HEADER ==================== */
         header {
-            background: rgba(15, 118, 110, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: #1A3C34;
+            border-bottom: 3px solid #C2410C;
             color: white;
             padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .header-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
 
         .logo {
@@ -581,27 +579,20 @@ input[type="text"], select {
 
         /* ==================== HERO ==================== */
         .hero {
-            background: linear-gradient(135deg, #0F766E 0%, #134E4A 50%, #0891B2 100%);
-            color: white;
+            background: #faf8f5;
+            color: #222222;
             padding: 110px 20px 90px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 2px solid #C2410C;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(20, 184, 166, 0.4) 0%, transparent 60%);
-            pointer-events: none;
-        }
+        .hero::before { display: none; }
 
         .hero-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
-            box-sizing: border-box;
         }
 
         .hero h1 {
@@ -720,16 +711,12 @@ input[type="text"], select {
 
         /* ==================== BENEFITS / PITCH SECTIONS ==================== */
         .section {
-            width: 100%;
             padding: 90px 20px;
-            box-sizing: border-box;
         }
 
         .section-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
-            box-sizing: border-box;
         }
 
         .section-title {
@@ -853,7 +840,7 @@ input[type="text"], select {
 
         /* Footer Fix */
         footer {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            background: #1A3C34;
             color: white;
             padding: 70px 20px 50px;
             text-align: center;

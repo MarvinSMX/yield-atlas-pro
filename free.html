@@ -536,7 +536,7 @@ input[type="text"], select {
             font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #111827 0%, #F0F9FF 50%, #F5F3FF 100%);
+            background: #f2f4f0;
             overflow-x: hidden;
         }
 
@@ -564,26 +564,24 @@ input[type="text"], select {
 
         /* ==================== HEADER ==================== */
         header {
-            background: rgba(15, 118, 110, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            background: #1A3C34;
+            border-bottom: 3px solid #C2410C;
             color: white;
-            padding: 16px 20px;
+            padding: 14px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .header-container {
-            width: 94%;
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            box-sizing: border-box;
         }
 
         .logo {
@@ -632,33 +630,23 @@ input[type="text"], select {
 
         /* ==================== HERO SECTION ==================== */
         .hero {
-            background: linear-gradient(135deg, #0F766E 0%, #134E4A 50%, #0891B2 100%);
+            background: #faf8f5;
             position: relative;
             overflow: hidden;
             padding: 60px 20px 80px;
-            color: white;
-            min-height: 100vh;
+            color: #222222;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 2px solid #C2410C;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .hero::before { display: none; }
 
         .hero-container {
-            width: 94%;
             max-width: 1400px;
+            width: 100%;
             position: relative;
             z-index: 2;
             animation: slide-in-up 0.8s ease-out;
@@ -666,8 +654,6 @@ input[type="text"], select {
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            box-sizing: border-box;
-            margin: 0 auto;
         }
 
         .hero-content {
@@ -833,11 +819,9 @@ input[type="text"], select {
 
         /* ==================== FEATURES SECTION ==================== */
         .section {
-            width: 100%;
             padding: 80px 20px;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box;
         }
 
         .section-white {
@@ -845,16 +829,14 @@ input[type="text"], select {
         }
 
         .section-gradient {
-            background: linear-gradient(135deg, #111827 0%, #F0F9FF 100%);
+            background: #faf8f5;
         }
 
         .section-container {
-            width: 94%;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            box-sizing: border-box;
         }
 
         .section-title {
@@ -1013,7 +995,7 @@ input[type="text"], select {
 
         /* ==================== CTA SECTION ==================== */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
+            background: #1A3C34;
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -1021,18 +1003,7 @@ input[type="text"], select {
             overflow: hidden;
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .cta-section::before { display: none; }
 
         .cta-content {
             position: relative;
@@ -1064,7 +1035,7 @@ input[type="text"], select {
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            background: #1A3C34;
             color: white;
             padding: 50px 20px;
             text-align: center;
@@ -1072,18 +1043,7 @@ input[type="text"], select {
             overflow: hidden;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        footer::before { display: none; }
 
         .footer-content {
             max-width: none;

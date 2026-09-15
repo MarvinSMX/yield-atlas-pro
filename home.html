@@ -548,32 +548,30 @@ input[type="text"], select {
             font-family: 'Syne', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #111827 0%, #F0F9FF 50%, #F5F3FF 100%);
+            background: #f2f4f0;
             overflow-x: hidden;
         }
 
         /* ==================== HEADER & HERO ==================== */
         header {
-            background: rgba(15, 118, 110, 0.7);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: #1A3C34;
+            border-bottom: 3px solid #C2410C;
             color: white;
             padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .header-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
 
         .logo {
@@ -618,43 +616,19 @@ input[type="text"], select {
         }
 
         .hero {
-            background: linear-gradient(135deg, #0F766E 0%, #134E4A 50%, #0891B2 100%);
+            background: #faf8f5;
             position: relative;
             overflow: hidden;
             padding: 80px 20px;
-            color: white;
-            min-height: 85vh;
+            color: #222222;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 2px solid #C2410C;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.3) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 20s linear infinite;
-            pointer-events: none;
-        }
+        .hero::before, .hero::after { display: none; }
 
         @keyframes drift {
             0% { transform: translate(0, 0); }
@@ -662,15 +636,13 @@ input[type="text"], select {
         }
 
         .hero-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
             position: relative;
             z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            box-sizing: border-box;
             align-items: center;
             animation: slide-in-up 0.8s ease-out;
         }
@@ -780,37 +752,22 @@ input[type="text"], select {
         /* ==================== TRUST STATS ==================== */
         /* ==================== SECTION STYLES ==================== */
         .section {
-            width: 100%;
             padding: 60px 20px;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box;
         }
 
         .section-dark {
-            background: linear-gradient(135deg, #111827 0%, #F0F9FF 100%);
+            background: #faf8f5;
         }
 
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .section::before { display: none; }
 
         .section-container {
-            width: 94%;
-            max-width: 1400px;
+            max-width: none;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            box-sizing: border-box;
         }
 
         .section-title {
@@ -1217,7 +1174,7 @@ input[type="text"], select {
 
         /* ==================== CTA SECTION ==================== */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+            background: #1A3C34;
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -1225,18 +1182,7 @@ input[type="text"], select {
             overflow: hidden;
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .cta-section::before { display: none; }
 
         .cta-section h2 {
             font-size: 48px;
@@ -1356,7 +1302,7 @@ input[type="text"], select {
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            background: #1A3C34;
             color: white;
             padding: 50px 20px;
             text-align: center;
@@ -1364,20 +1310,9 @@ input[type="text"], select {
             overflow: hidden;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        footer::before { display: none; }
 
-        footer-content {
+        .footer-content {
             max-width: none;
             margin: 0 auto;
             position: relative;

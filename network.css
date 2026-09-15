@@ -11,7 +11,7 @@
   --on-accent: #ffffff !important;
   --gold: #C2410C !important;
   --gold2: #EA580C !important;
-  --bg: #f4f2ef !important;
+  --bg: #f2f4f0 !important;
   --surface: #ffffff !important;
   --surface-2: #faf8f5 !important;
   --ink: #222222 !important;
@@ -44,30 +44,25 @@
 
 html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; overflow-x: hidden !important; }
 body {
-  font-family: var(--font-sans) !important; background: #f4f2ef !important; color: #222222 !important;
+  font-family: var(--font-sans) !important; background: #f2f4f0 !important; color: #222222 !important;
   line-height: 1.55 !important; min-height: 100vh !important; display: flex !important;
   flex-direction: column !important; align-items: center !important;
+  background-image: none !important;
 }
 a { color: #1A3C34 !important; }
 a:hover { color: #C2410C !important; }
 
-/* Full-bleed bands: outer wrappers span the viewport; inner shells stay 94%/1400 */
-header, .nx-header, body > header:not(.nx-skip),
-.site-network-bar, .deal-banner, .hero, .nx-hero, .main-h1,
-.section, .features-section, .comparison-section, .faq-section,
-.disclaimer-bar, .ad-band, .sponsor-strip, .footer-band {
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-  align-self: stretch !important;
-}
-
+/* Solid brand header — no glass / blur / gradients */
 header, .nx-header, body > header:not(.nx-skip) {
   width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
   text-align: center !important; padding: 18px 20px 14px !important;
   border-bottom: 3px solid #C2410C !important; box-shadow: none !important;
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  background-image: none !important;
+}
+.deal-banner {
+  width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
+  border-bottom: 2px solid #C2410C !important; background-image: none !important;
 }
 .logo, .nx-logo, .logo-text, .logo-link .logo {
   font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
@@ -100,31 +95,65 @@ header, .nx-header, body > header:not(.nx-skip) {
 .site-pill:hover, .site-pill.current { background: #C2410C !important; color: #ffffff !important; border-color: #C2410C !important; }
 @media (min-width: 1150px) { .site-network-track { justify-content: center !important; } }
 
-/* Light hero — copper left rule vibe via underline */
+/* Light solid hero — same treatment as YieldAtlas / simple affiliate pages */
 .hero, .nx-hero, .main-h1 {
   width: 100% !important; background: #faf8f5 !important; color: #222222 !important;
   text-align: center !important; padding: 36px 20px 24px !important;
-  border-bottom: 2px solid #C2410C !important;
+  border-bottom: 2px solid #C2410C !important; background-image: none !important;
 }
+.hero::before, .nx-hero::before, .section::before, .cta-section::before,
+.hero::after, .section::after, .cta-section::after { display: none !important; }
 .hero h1, .nx-hero h1, .main-h1 h1, body > h1, .content > h1 {
   font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
   font-size: clamp(1.45em, 3.8vw, 2.3em) !important; color: #1A3C34 !important; margin: 0 0 12px !important;
 }
-.hero h1 span, .nx-hero h1 span, .main-h1 h1 span { color: #C2410C !important; }
-.hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead {
+.hero h1 span, .nx-hero h1 span, .main-h1 h1 span, .hero .hl, .hl { color: #C2410C !important; }
+.hero .subtitle, .hero .hero-tagline, .hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead {
   max-width: 720px !important; margin: 0 auto 20px !important;
   color: #333333 !important; font-size: 0.94em !important; line-height: 1.7 !important;
 }
+.hero .subtitle strong, .hero .hero-tagline strong, .intro-text strong, .top-disclaimer strong { color: #222222 !important; }
+.hero .pre-head {
+  color: #C2410C !important; border-color: #C2410C !important; background: #ffffff !important;
+}
+.hero .trust-badge {
+  background: #ffffff !important; border: 1px solid #1A3C34 !important; color: #1A3C34 !important;
+  backdrop-filter: none !important;
+}
+.hero .cta-sub { color: #555555 !important; }
 .intro-text *, .top-disclaimer *, .hero-desc *, .subhead * { color: inherit !important; }
-.intro-text strong, .top-disclaimer strong { color: #222222 !important; }
+
+/* Solid section / CTA / footer bands — no multi-stop washes */
+.section, .section-dark, .section-gradient, .video-demo-section, .features-section,
+.comparison-section, .faq-section, .pricing-section, .proof-strip {
+  background: #ffffff !important; background-image: none !important; color: #222222 !important;
+}
+.section-dark, .section-gradient, .proof-strip { background: #faf8f5 !important; }
+.cta-section, footer, .footer-band {
+  width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
+  background-image: none !important;
+}
+.cta-section h2, .cta-section p, footer p, footer a { color: #ffffff !important; }
+footer a:hover { color: #FDE68A !important; }
+footer::before, .cta-section::before { display: none !important; }
+.nav-cta, .cta-btn, .cta-button, a.cta-btn {
+  background: #C2410C !important; background-image: none !important; color: #ffffff !important;
+  box-shadow: none !important;
+}
+.nav-cta:hover, .cta-btn:hover, a.cta-btn:hover {
+  background: #EA580C !important; background-image: none !important; color: #ffffff !important;
+}
 .hero-stats { display: inline-flex !important; border: 2px solid #1A3C34 !important; border-radius: 4px !important; overflow: hidden !important; background: #ffffff !important; }
 .hero-stat { padding: 14px 28px !important; border-right: 1px solid #dddddd !important; }
 .hero-stat:last-child { border-right: none !important; }
 .hero-stat-val { font-family: "Merriweather", Georgia, serif !important; font-size: 1.6em !important; font-weight: 900 !important; color: #C2410C !important; }
 .hero-stat-lbl { font-size: 0.62em !important; font-weight: 700 !important; text-transform: uppercase !important; color: #666666 !important; margin-top: 5px !important; }
 
-/* Inner content shell only — never put BG wrappers (section/hero/header) here */
-.content, .nx-shell, .container, .wrap, #etfTableWrapper,
+/* Same content shell as growth-atlas / weekly-payout — no 100vw breakouts */
+.content, .nx-shell, .container, .wrap, #etfTableWrapper {
+  width: 94% !important; max-width: 1400px !important; margin-left: auto !important; margin-right: auto !important;
+}
+/* PRO page inners share that shell (header/hero/network stay width:100%) */
 .hero-container, .header-container, .deal-banner-inner,
 .pricing-container, .shot-wrap, .section-inner, .section-container,
 .proof-inner {
