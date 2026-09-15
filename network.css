@@ -1,24 +1,33 @@
-/* YieldAtlas Pro — wine + champagne, premium dark hero, soft pills, 4px top table accent */
+/* YieldAtlas Pro — same copper/teal YieldAtlas chrome (PRO content, shared brand) */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Merriweather:wght@700;900&display=swap");
 
 :root {
-  --brand: #3A1520 !important;
-  --brand-dark: #280E16 !important;
-  --brand-mid: #4A1C2A !important;
-  --accent: #D4A574 !important;
-  --accent-hover: #E8C9A0 !important;
-  --accent-soft: rgba(212, 165, 116, 0.16) !important;
-  --on-accent: #3A1520 !important;
-  --gold: #D4A574 !important;
-  --gold2: #E8C9A0 !important;
-  --bg: #f6f2f0 !important;
+  --brand: #1A3C34 !important;
+  --brand-dark: #122C26 !important;
+  --brand-mid: #245248 !important;
+  --accent: #C2410C !important;
+  --accent-hover: #EA580C !important;
+  --accent-soft: rgba(194, 65, 12, 0.14) !important;
+  --on-accent: #ffffff !important;
+  --gold: #C2410C !important;
+  --gold2: #EA580C !important;
+  --bg: #f4f2ef !important;
   --surface: #ffffff !important;
+  --surface-2: #faf8f5 !important;
   --ink: #222222 !important;
   --muted: #555555 !important;
-  --shell: 100% !important;
-  --shell-max: none !important;
-  --radius: 8px !important;
-  --btn-radius: 999px !important;
+  --ink-faint: #777777 !important;
+  --line: #dddddd !important;
+  --line-strong: #bbbbbb !important;
+  --header: #1A3C34 !important;
+  --header-ink: #ffffff !important;
+  --shell: 94% !important;
+  --shell-max: 1400px !important;
+  --radius: 4px !important;
+  --btn-radius: 4px !important;
+  --table-border: 2px !important;
+  --font-sans: "Lato", Arial, Helvetica, sans-serif !important;
+  --font-display: "Merriweather", Georgia, serif !important;
   --primary: var(--accent) !important;
   --green: var(--accent) !important;
   --navy: var(--brand) !important;
@@ -27,137 +36,178 @@
   --bg-secondary: var(--surface) !important;
   --text-primary: var(--ink) !important;
   --text-secondary: var(--muted) !important;
-  --border: rgba(212, 165, 116, 0.28) !important;
+  --border: rgba(194, 65, 12, 0.22) !important;
   --light: #ffffff !important;
   --paper: var(--bg) !important;
-  --font-sans: "Lato", Arial, Helvetica, sans-serif !important;
-  --font-display: "Merriweather", Georgia, serif !important;
+  --paper-2: var(--surface) !important;
 }
 
 html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; overflow-x: hidden !important; }
 body {
-  font-family: var(--font-sans) !important; background: #f6f2f0 !important; color: #222222 !important;
+  font-family: var(--font-sans) !important; background: #f4f2ef !important; color: #222222 !important;
   line-height: 1.55 !important; min-height: 100vh !important; display: flex !important;
   flex-direction: column !important; align-items: center !important;
 }
-a { color: #3A1520 !important; }
-a:hover { color: #A16207 !important; }
+a { color: #1A3C34 !important; }
+a:hover { color: #C2410C !important; }
 
 header, .nx-header, body > header:not(.nx-skip) {
-  width: 100% !important; background: #3A1520 !important; color: #ffffff !important;
-  text-align: center !important; padding: 20px !important; border-bottom: 3px solid #D4A574 !important;
+  width: 100% !important; background: #1A3C34 !important; color: #ffffff !important;
+  text-align: center !important; padding: 18px 20px 14px !important;
+  border-bottom: 3px solid #C2410C !important; box-shadow: none !important;
 }
-.logo, .nx-logo, .logo-text { font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important; font-size: clamp(22px, 5.5vw, 38px) !important; color: #D4A574 !important; }
-.logo span { color: #D4A574 !important; }
-.logo-sub, .nx-tagline { font-size: 0.64em !important; font-weight: 700 !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: rgba(255,255,255,0.78) !important; margin-top: 5px !important; }
+.logo, .nx-logo, .logo-text, .logo-link .logo {
+  font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
+  font-size: clamp(22px, 5.5vw, 38px) !important; color: #ffffff !important; line-height: 1.1 !important;
+}
+.logo span, .nx-logo span { color: #C2410C !important; }
+.logo-sub, .nx-tagline {
+  font-size: 0.65em !important; font-weight: 700 !important; letter-spacing: 0.14em !important;
+  text-transform: uppercase !important; color: rgba(255,255,255,0.75) !important; margin-top: 4px !important;
+}
 .header-links, .nx-nav { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; justify-content: center !important; margin-top: 14px !important; }
-.header-link, .nx-nav a {
-  display: inline-flex !important; padding: 9px 18px !important; border: 2px solid #D4A574 !important;
-  border-radius: 999px !important; background: rgba(212,165,116,0.14) !important; color: #F5E6D0 !important;
+.header-link, .nx-nav a, .btn-ghost {
+  display: inline-flex !important; padding: 8px 16px !important; border: 2px solid #C2410C !important;
+  border-radius: 4px !important; background: transparent !important; color: #ffffff !important;
   font-weight: 900 !important; font-size: 13px !important; text-decoration: none !important;
 }
-.header-link:hover, .nx-nav a:hover { background: #D4A574 !important; color: #3A1520 !important; }
+.header-link:hover, .nx-nav a:hover { background: #C2410C !important; color: #ffffff !important; }
 
 .site-network-bar { width: 100% !important; background: #ffffff !important; border-bottom: 1px solid #dddddd !important; padding: 5px 0 !important; }
-.site-network-track { width: 100% !important; max-width: none !important; margin: 0 auto !important; padding: 0 clamp(12px, 2vw, 40px) !important; display: flex !important; align-items: center !important; gap: 5px !important; overflow-x: auto !important; white-space: nowrap !important; }
+.site-network-track {
+  width: 94% !important; max-width: 1400px !important; margin: 0 auto !important; padding: 0 15px !important;
+  display: flex !important; align-items: center !important; gap: 5px !important; overflow-x: auto !important; white-space: nowrap !important;
+}
 .site-network-label { font-size: 0.56em !important; font-weight: 900 !important; text-transform: uppercase !important; color: #666666 !important; flex-shrink: 0 !important; }
-.site-pill { display: inline-flex !important; padding: 3.5px 8px !important; border-radius: 999px !important; border: 1px solid #3A1520 !important; background: #fff !important; color: #3A1520 !important; font-size: 0.62em !important; font-weight: 700 !important; text-decoration: none !important; flex-shrink: 0 !important; }
-.site-pill:hover, .site-pill.current { background: #3A1520 !important; color: #D4A574 !important; border-color: #3A1520 !important; }
+.site-pill {
+  display: inline-flex !important; padding: 3px 8px !important; border-radius: 3px !important;
+  border: 1px solid #1A3C34 !important; background: #ffffff !important; color: #1A3C34 !important;
+  font-size: 0.62em !important; font-weight: 700 !important; text-decoration: none !important; flex-shrink: 0 !important;
+}
+.site-pill:hover, .site-pill.current { background: #C2410C !important; color: #ffffff !important; border-color: #C2410C !important; }
 @media (min-width: 1150px) { .site-network-track { justify-content: center !important; } }
 
-.hero, .nx-hero {
-  width: 100% !important; background: linear-gradient(160deg, #4A1C2A 0%, #280E16 100%) !important;
-  color: #ffffff !important; text-align: center !important; padding: 52px 20px 44px !important;
-  border-bottom: 1px solid rgba(212,165,116,0.3) !important;
+/* Light hero — copper left rule vibe via underline */
+.hero, .nx-hero, .main-h1 {
+  width: 100% !important; background: #faf8f5 !important; color: #222222 !important;
+  text-align: center !important; padding: 36px 20px 24px !important;
+  border-bottom: 2px solid #C2410C !important;
 }
-.hero h1, .nx-hero h1 { font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important; font-size: clamp(1.5em, 4vw, 2.5em) !important; color: #ffffff !important; margin: 0 0 14px !important; }
-.hero h1 span { color: #D4A574 !important; }
-.hero .hero-desc, .nx-hero .nx-support { color: rgba(255,255,255,0.9) !important; max-width: 680px !important; margin: 0 auto 24px !important; }
-.main-h1 { background: transparent !important; color: #222222 !important; text-align: center !important; padding: 28px 16px 8px !important; }
-.main-h1 h1 { color: #3A1520 !important; font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important; }
-.intro-text, .top-disclaimer, .subhead { color: #333333 !important; }
+.hero h1, .nx-hero h1, .main-h1 h1, body > h1, .content > h1 {
+  font-family: "Merriweather", Georgia, serif !important; font-weight: 900 !important;
+  font-size: clamp(1.45em, 3.8vw, 2.3em) !important; color: #1A3C34 !important; margin: 0 0 12px !important;
+}
+.hero h1 span, .nx-hero h1 span, .main-h1 h1 span { color: #C2410C !important; }
+.hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead {
+  max-width: 720px !important; margin: 0 auto 20px !important;
+  color: #333333 !important; font-size: 0.94em !important; line-height: 1.7 !important;
+}
+.intro-text *, .top-disclaimer *, .hero-desc *, .subhead * { color: inherit !important; }
+.intro-text strong, .top-disclaimer strong { color: #222222 !important; }
+.hero-stats { display: inline-flex !important; border: 2px solid #1A3C34 !important; border-radius: 4px !important; overflow: hidden !important; background: #ffffff !important; }
+.hero-stat { padding: 14px 28px !important; border-right: 1px solid #dddddd !important; }
+.hero-stat:last-child { border-right: none !important; }
+.hero-stat-val { font-family: "Merriweather", Georgia, serif !important; font-size: 1.6em !important; font-weight: 900 !important; color: #C2410C !important; }
+.hero-stat-lbl { font-size: 0.62em !important; font-weight: 700 !important; text-transform: uppercase !important; color: #666666 !important; margin-top: 5px !important; }
 
 .content, .nx-shell, .container, .wrap, #etfTableWrapper,
 .hero-container, .header-container, .deal-banner-inner,
 .pricing-container, .features-section, .comparison-section,
 .faq-section, .shot-wrap, .section-inner, .section-container,
 .proof-inner, .features-grid, .comparison-table-wrap {
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
-  padding-left: clamp(16px, 3vw, 48px) !important;
-  padding-right: clamp(16px, 3vw, 48px) !important;
-}
-.footer, footer {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 16px auto 28px !important;
-  text-align: center !important;
-  border-top: 1px solid #dddddd !important;
-  padding: 12px clamp(16px, 3vw, 48px) !important;
-  font-size: 0.85em !important;
-  line-height: 1.9 !important;
+  width: 94% !important; max-width: 1400px !important; margin-left: auto !important; margin-right: auto !important;
   box-sizing: border-box !important;
 }
-.section-head { text-align: center !important; margin: 32px 0 8px !important; }
-.section-head h2 { font-family: "Merriweather", Georgia, serif !important; color: #3A1520 !important; font-weight: 900 !important; }
-.section-head p { color: #555555 !important; }
-.gold-rule { width: 48px !important; height: 3px !important; background: #D4A574 !important; margin: 12px auto 22px !important; border: none !important; border-radius: 999px !important; }
+.section-head { text-align: center !important; margin: 28px 0 8px !important; }
+.section-head h2 {
+  font-family: "Merriweather", Georgia, serif !important; font-size: clamp(1.15em, 2.8vw, 1.65em) !important;
+  font-weight: 900 !important; color: #1A3C34 !important; margin: 0 0 4px !important;
+  border-bottom: 2px solid #C2410C !important; display: inline-block !important; padding-bottom: 6px !important;
+}
+.section-head p { color: #555555 !important; font-size: 0.88em !important; }
+.gold-rule, .nx-rule { width: 64px !important; height: 2px !important; background: #C2410C !important; margin: 10px auto 18px !important; border: none !important; }
 
+.browse-link, .watchlist-btn, .header-pro-btn, .cta-button {
+  border-radius: 4px !important; font-weight: 900 !important;
+}
 .browse-link, .cta-button {
-  display: inline-flex !important; padding: 12px 22px !important; border-radius: 999px !important;
-  border: 2px solid #3A1520 !important; background: #fff !important; color: #3A1520 !important;
-  font-weight: 900 !important; text-decoration: none !important;
+  display: inline-flex !important; padding: 10px 18px !important; background: #ffffff !important;
+  border: 2px solid #1A3C34 !important; color: #1A3C34 !important; text-decoration: none !important;
 }
-.browse-link.primary, .cta-button:not(.ghost), .header-pro-btn {
-  background: #D4A574 !important; border-color: #D4A574 !important; color: #3A1520 !important;
+.browse-link.primary, .watchlist-btn, .header-pro-btn, .cta-button:not(.ghost) {
+  background: #C2410C !important; border-color: #C2410C !important; color: #ffffff !important;
 }
-
 #filters { display: flex !important; flex-wrap: wrap !important; gap: 10px !important; justify-content: center !important; width: 100% !important; }
-#filters input, input[type="text"], select, textarea {
-  border: 2px solid #cccccc !important; border-radius: 8px !important; padding: 9px 14px !important; background: #ffffff !important; color: #222222 !important;
+#filters input, #searchInput, #searchFilter, #etfSearch, input[type="text"], input[type="search"], select, textarea {
+  border: 2px solid #cccccc !important; border-radius: 4px !important; padding: 9px 14px !important;
+  background: #ffffff !important; color: #222222 !important; font-family: "Lato", Arial, sans-serif !important;
 }
-#resetFilters { background: #3A1520 !important; color: #ffffff !important; border: none !important; padding: 9px 18px !important; border-radius: 999px !important; font-weight: 700 !important; cursor: pointer !important; }
+#resetFilters, #resetBtn { background: #1A3C34 !important; color: #ffffff !important; border: none !important; padding: 9px 18px !important; border-radius: 4px !important; font-weight: 700 !important; cursor: pointer !important; }
+#resetFilters:hover, #resetBtn:hover { background: #C2410C !important; color: #ffffff !important; }
+.special-btn, .chip {
+  padding: 9px 16px !important; border: 2px solid #1A3C34 !important; border-radius: 4px !important;
+  background: #ffffff !important; color: #1A3C34 !important; font-weight: 700 !important; cursor: pointer !important;
+}
+.special-btn.active, .special-btn:hover, .chip:hover, .chip.active, .chip.gold, .chip.new {
+  background: #C2410C !important; border-color: #C2410C !important; color: #ffffff !important;
+}
+.chip-label { color: #555555 !important; font-weight: 700 !important; }
 
-#etfTable, table {
+#etfTable, table.etf-table, .peer-table, table {
   width: 100% !important; border-collapse: collapse !important; background: #ffffff !important;
-  border: 1px solid #dddddd !important; border-top: 4px solid #3A1520 !important;
-  box-shadow: 0 4px 20px rgba(58,21,32,0.1) !important;
+  border: 2px solid #1A3C34 !important; box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
 }
 #etfTable th, table th, thead th {
-  background: #3A1520 !important; color: #ffffff !important; font-weight: 700 !important;
-  font-size: 0.74em !important; text-transform: uppercase !important; padding: 13px 10px !important;
+  background: #1A3C34 !important; color: #ffffff !important; font-weight: 700 !important;
+  font-size: 0.74em !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; padding: 12px 10px !important;
 }
-#etfTable td, table td { color: #222222 !important; padding: 11px 10px !important; border-bottom: 1px solid #eee !important; text-align: center !important; }
-#etfTable tbody tr:nth-child(even) { background: #faf7f5 !important; }
-.symbol, .symbol a { color: #3A1520 !important; font-weight: 900 !important; }
+#etfTable td, table td { padding: 10px !important; color: #222222 !important; border-bottom: 1px solid #eee !important; text-align: center !important; }
+#etfTable tbody tr:nth-child(even) { background: #faf8f5 !important; }
+.symbol, .symbol a, .col-ticker a { color: #1A3C34 !important; font-weight: 900 !important; text-decoration: none !important; }
 
 .ad-slot.leaderboard, .leaderboard-ad {
-  width: 100% !important; max-width: 970px !important; margin: 20px auto 28px !important; min-height: 90px !important;
+  width: 100% !important; max-width: 970px !important; margin: 18px auto 24px !important; min-height: 90px !important;
   background: repeating-linear-gradient(-45deg, #f0f0f0, #f0f0f0 8px, #e8e8e8 8px, #e8e8e8 16px) !important;
-  border: 2px dashed #bbbbbb !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important;
+  border: 2px dashed #bbbbbb !important; display: flex !important; align-items: center !important; justify-content: center !important;
   color: #666666 !important; font-weight: 700 !important; font-size: 0.78em !important; text-transform: uppercase !important;
 }
 
-.disclaimer, .table-meta, .loading, .site-network-label, footer, .footer { color: #555555 !important; }
-.footer a { color: #3A1520 !important; font-weight: 700 !important; }
-.back-to-top { background: #3A1520 !important; color: #ffffff !important; border-radius: 999px !important; padding: 8px 22px !important; border: none !important; font-weight: 700 !important; }
-.vote-count, #voteMsg { color: #3A1520 !important; font-weight: 700 !important; }
+.disclaimer, .disclaimer-bar, .table-meta, .loading, .col-name, .banner-label, .banner-legal, .site-network-label,
+.intro-text, .top-disclaimer, .subhead, .az-sub, .hub-link, footer, .footer {
+  color: #555555 !important;
+}
+.disclaimer-bar { width: 100% !important; background: rgba(194, 65, 12, 0.08) !important; border-bottom: 1px solid #dddddd !important; padding: 0.5rem 1rem !important; }
+.footer, footer { width: 90% !important; max-width: 900px !important; margin: 16px auto 28px !important; text-align: center !important; border-top: 1px solid #dddddd !important; padding-top: 12px !important; font-size: 0.85em !important; line-height: 1.9 !important; }
+.footer a, footer a { color: #1A3C34 !important; font-weight: 700 !important; }
+.back-to-top { background: #1A3C34 !important; color: #ffffff !important; border-radius: 4px !important; padding: 8px 20px !important; border: none !important; font-weight: 700 !important; }
+.vote-count, #voteMsg { color: #C2410C !important; font-weight: 700 !important; }
 .stars, .orb, body::before { display: none !important; }
+
+/* Light-canvas text safety (never white on cream) */
+body > h1, .content > h1, .main-h1, .main-h1 h1, h1 {
+  color: #1A3C34 !important;
+}
+.hero h1, .nx-hero h1, .hero h1 span, .nx-hero h1 span {
+  color: #1A3C34 !important;
+}
+.hero h1 span, .nx-hero h1 span, .main-h1 h1 span { color: #C2410C !important; }
+.hero-desc, .nx-support, .intro-text, .top-disclaimer, .subhead,
+.hero-desc *, .intro-text *, .nx-support * {
+  color: #333333 !important;
+}
+.intro-text strong, .hero-desc strong, .top-disclaimer strong { color: #222222 !important; }
 
 /* Share / Post — readable on light canvas */
 .share-buttons { display: flex !important; gap: 12px !important; justify-content: center !important; flex-wrap: wrap !important; margin: 18px auto 8px !important; }
 .share-btn, a.share-btn {
   display: inline-flex !important; align-items: center !important; gap: 6px !important;
-  padding: 8px 14px !important; border-radius: 8px !important;
+  padding: 8px 14px !important; border-radius: 6px !important;
   font-weight: 800 !important; font-size: 0.85em !important; text-decoration: none !important;
   color: #222222 !important; background: #ffffff !important;
-  border: 1.5px solid #3A1520 !important; box-shadow: none !important;
+  border: 1.5px solid #1A3C34 !important; box-shadow: none !important;
 }
 .share-btn:hover, a.share-btn:hover {
-  background: #f6f2f0 !important; color: #111111 !important; border-color: #D4A574 !important;
+  background: #f4f2ef !important; color: #111111 !important; border-color: #C2410C !important;
 }
 .share-btn.fb, a.share-btn.fb, .fb.share-btn {
   color: #1877F2 !important; border-color: #1877F2 !important; background: #ffffff !important;

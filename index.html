@@ -45,7 +45,7 @@
   --ink: #111827;
   --muted: #5B6575;
   --line: #D8DEE8;
-  --accent: #BE123C;
+  --accent: #C2410C;
   /* Extended / legacy aliases */
   --ink-muted: var(--muted);
   --ink-faint: #8B95A5;
@@ -54,13 +54,13 @@
   --line-strong: #B8C0CE;
   --header: #FFFFFF;
   --header-ink: #111827;
-  --accent-soft: rgba(190, 18, 60, 0.10);
-  --accent-hover: #9F1239;
+  --accent-soft: rgba(194, 65, 12, 0.10);
+  --accent-hover: #EA580C;
   --on-accent: #FFFFFF;
   --danger: #DC2626;
-  --pos: #BE123C;
-  --shell: 100%;
-  --shell-max: none;
+  --pos: #C2410C;
+  --shell: 94%;
+  --shell-max: 1400px;
   --radius: 0;
   --font-sans: "Syne", system-ui, sans-serif;
   --font-display: "Syne", system-ui, sans-serif;
@@ -525,13 +525,13 @@ input[type="text"], select {
             --primary-light: #14B8A6;
             --accent: #06B6D4;
             --accent-dark: #0891B2;
-            --accent-secondary: #BE123C;
+            --accent-secondary: #C2410C;
             --text-dark: #000000;
             --text-light: #64748B;
             --bg-light: #F0F9FF;
             --bg-lighter: #111827;
             --border: #E2E8F0;
-            --success: #BE123C;
+            --success: #C2410C;
             --yellow: #FCD34D;
             --urgent: #EF4444;
         }
@@ -550,8 +550,8 @@ input[type="text"], select {
         }
 
         @keyframes pulse-button {
-            0%, 100% { box-shadow: 0 6px 0 #BE123C, 0 15px 40px rgba(252, 211, 77, 0.4); }
-            50% { box-shadow: 0 6px 0 #BE123C, 0 15px 40px rgba(252, 211, 77, 0.7); }
+            0%, 100% { box-shadow: 0 6px 0 #C2410C, 0 15px 40px rgba(252, 211, 77, 0.4); }
+            50% { box-shadow: 0 6px 0 #C2410C, 0 15px 40px rgba(252, 211, 77, 0.7); }
         }
 
         body {
@@ -697,7 +697,7 @@ input[type="text"], select {
         .header-nav a:hover { color: white; }
 
         .nav-cta {
-            background: linear-gradient(135deg, var(--yellow) 0%, #BE123C 100%);
+            background: linear-gradient(135deg, var(--yellow) 0%, #C2410C 100%);
             color: #1F2937 !important;
             padding: 10px 20px;
             border-radius: 8px;
@@ -710,7 +710,7 @@ input[type="text"], select {
         /* ==================== CTA BUTTONS (3D FUNNEL STYLE) ==================== */
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(180deg, #FDE68A 0%, var(--yellow) 40%, #BE123C 100%);
+            background: linear-gradient(180deg, #FDE68A 0%, var(--yellow) 40%, #C2410C 100%);
             color: #1F2937;
             font-family: 'Syne', Arial, sans-serif;
             font-size: 20px;
@@ -721,7 +721,7 @@ input[type="text"], select {
             border-radius: 12px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 6px 0 #BE123C, 0 15px 40px rgba(252, 211, 77, 0.4);
+            box-shadow: 0 6px 0 #C2410C, 0 15px 40px rgba(252, 211, 77, 0.4);
             transition: transform 0.15s, box-shadow 0.15s;
             letter-spacing: 0.3px;
             text-transform: uppercase;
@@ -729,12 +729,12 @@ input[type="text"], select {
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 0 #BE123C, 0 20px 50px rgba(252, 211, 77, 0.6);
+            box-shadow: 0 8px 0 #C2410C, 0 20px 50px rgba(252, 211, 77, 0.6);
         }
 
         .cta-btn:active {
             transform: translateY(3px);
-            box-shadow: 0 3px 0 #BE123C, 0 8px 20px rgba(252, 211, 77, 0.4);
+            box-shadow: 0 3px 0 #C2410C, 0 8px 20px rgba(252, 211, 77, 0.4);
         }
 
         .cta-btn.teal {
@@ -900,7 +900,7 @@ input[type="text"], select {
             position: absolute;
             top: -18px;
             right: -8px;
-            background: linear-gradient(135deg, var(--yellow) 0%, #BE123C 100%);
+            background: linear-gradient(135deg, var(--yellow) 0%, #C2410C 100%);
             color: #1F2937;
             font-size: 14px;
             font-weight: 900;
@@ -1371,7 +1371,7 @@ input[type="text"], select {
         .price-save {
             display: inline-block;
             margin-top: 12px;
-            background: linear-gradient(135deg, var(--yellow) 0%, #BE123C 100%);
+            background: linear-gradient(135deg, var(--yellow) 0%, #C2410C 100%);
             color: #1F2937;
             font-size: 13px;
             font-weight: 900;
@@ -1685,7 +1685,7 @@ input[type="text"], select {
   --ink: #111827 !important;
   --muted: #5B6575 !important;
   --line: #D8DEE8 !important;
-  --accent: #BE123C !important;
+  --accent: #C2410C !important;
   --paper: #F3F5F8 !important;
   --paper-2: #FFFFFF !important;
   --ink-muted: #5B6575 !important;
@@ -1696,10 +1696,10 @@ input[type="text"], select {
   --text-secondary: #5B6575 !important;
   --bg-primary: #F3F5F8 !important;
   --bg-secondary: #FFFFFF !important;
-  --gold: #BE123C !important;
+  --gold: #C2410C !important;
   --gold2: var(--accent-hover) !important;
-  --green: #BE123C !important;
-  --primary: #BE123C !important;
+  --green: #C2410C !important;
+  --primary: #C2410C !important;
   --navy: #111827 !important;
   --brand: #111827 !important;
   --light: #FFFFFF !important;
@@ -1712,10 +1712,10 @@ body {
 header, .nx-header {
   background: #FFFFFF !important;
   color: #111827 !important;
-  border-bottom: 2px solid #BE123C !important;
+  border-bottom: 2px solid #C2410C !important;
 }
 .logo, .nx-logo, .logo-text { color: #111827 !important; }
-.logo span, .nx-logo span { color: #BE123C !important; }
+.logo span, .nx-logo span { color: #C2410C !important; }
 .logo-sub, .nx-tagline { color: #5B6575 !important; }
 .header-link, .nx-nav a {
   color: #111827 !important;
@@ -1723,9 +1723,9 @@ header, .nx-header {
   background: transparent !important;
 }
 .header-link:hover, .nx-nav a:hover {
-  background: #BE123C !important;
+  background: #C2410C !important;
   color: #FFFFFF !important;
-  border-color: #BE123C !important;
+  border-color: #C2410C !important;
 }
 .hero, .nx-hero, main > .hero, section.hero, .main-h1 {
   background: #F3F5F8 !important;
@@ -1750,21 +1750,21 @@ header, .nx-header {
 }
 .site-pill:hover {
   background: rgba(0,0,0,0.04) !important;
-  color: #BE123C !important;
-  border-color: #BE123C !important;
+  color: #C2410C !important;
+  border-color: #C2410C !important;
 }
 .site-pill.current {
-  background: #BE123C !important;
+  background: #C2410C !important;
   color: #FFFFFF !important;
-  border-color: #BE123C !important;
+  border-color: #C2410C !important;
 }
 .chip {
   background: #FFFFFF !important;
   color: #111827 !important;
-  border-color: #BE123C !important;
+  border-color: #C2410C !important;
 }
 .chip:hover, .chip.active {
-  background: #BE123C !important;
+  background: #C2410C !important;
   color: #FFFFFF !important;
 }
 #filters input, #filters select, #searchInput, #searchFilter, #etfSearch,
@@ -1784,7 +1784,7 @@ input[type="text"], input[type="search"], select, textarea {
 #etfTable th, table th, thead th {
   background: #111827 !important;
   color: #FFFFFF !important;
-  border-bottom-color: #BE123C !important;
+  border-bottom-color: #C2410C !important;
 }
 #etfTable td, table td {
   color: #111827 !important;
@@ -1799,30 +1799,30 @@ tr:nth-child(even) {
 }
 .symbol, .symbol a, .symbol a:visited, .col-ticker, .col-ticker a,
 .yield, .decay, td:before, .tracker-link {
-  color: #BE123C !important;
+  color: #C2410C !important;
 }
 .footer a, footer a, a.tracker-link {
-  color: #BE123C !important;
+  color: #C2410C !important;
 }
 .stat, .faq, .rel, .info-card, .card, .panel {
   background: #FFFFFF !important;
   color: #111827 !important;
   border-color: #D8DEE8 !important;
 }
-.vote-count, #voteMsg { color: #BE123C !important; }
+.vote-count, #voteMsg { color: #C2410C !important; }
 .back-to-top {
   background: transparent !important;
-  color: #BE123C !important;
-  border: 1px solid #BE123C !important;
+  color: #C2410C !important;
+  border: 1px solid #C2410C !important;
 }
 .back-to-top:hover {
-  background: #BE123C !important;
+  background: #C2410C !important;
   color: #FFFFFF !important;
 }
 .watchlist-btn, .header-pro-btn, #resetFilters, #resetBtn {
-  background: #BE123C !important;
+  background: #C2410C !important;
   color: #FFFFFF !important;
-  border-color: #BE123C !important;
+  border-color: #C2410C !important;
 }
 
 </style>
