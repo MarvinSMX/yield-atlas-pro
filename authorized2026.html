@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="YieldAtlas Pro">
+    <title>YieldAtlas Pro Terminal | Premium ETF Rankings & Insights</title>
+    <meta name="description" content="Professional dividend ETF rankings with yields, AUM, expense ratios, total return, and more for serious income investors.">
+    
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --primary: #0F766E;
+            --primary-dark: #134E4A;
+            --primary-light: #14B8A6;
+            --accent: #06B6D4;
+            --text-dark: #0F172A;
+            --text-light: #64748B;
+            --success: #10B981;
+            --yellow: #FCD34D;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+            width: 100%;
+            font-family: 'Lato', Arial, sans-serif;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F0F9FF 50%, #F5F3FF 100%);
+            color: var(--text-dark);
+            -webkit-text-size-adjust: 100%;
+        }
+
+        header {
+            background: rgba(15, 118, 110, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 16px 20px; 
+            color: #fff;
+            text-align: center; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { 
+            font-size: clamp(26px, 7vw, 42px); 
+            font-weight: 900; 
+            letter-spacing: -1px; 
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 { 
+            color: white;
+            margin: 0 0 15px; 
+            font-size: clamp(30px, 8vw, 56px); 
+            text-align: center;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .content { 
+            width: 94%; 
+            max-width: 1700px; 
+            margin: 0 auto; 
+        }
+
+        /* ==================== TRENDS CTA ==================== */
+        .trends-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: #fff;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .trends-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .trends-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(15, 118, 110, 0.35);
+        }
+
+        .trends-cta-icon {
+            font-size: 40px;
+            line-height: 1;
+            flex: 0 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trends-cta-text {
+            flex: 1 1 auto;
+            min-width: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trends-cta-text strong {
+            display: block;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+
+        .trends-cta-text small {
+            display: block;
+            font-size: 15px;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .trends-cta-go {
+            flex: 0 0 auto;
+            background: rgba(255, 255, 255, 0.18);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 14px 26px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            white-space: nowrap;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trends-cta:hover .trends-cta-go {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #filters {
+            max-width: 1700px; 
+            margin: 30px auto; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            justify-content: center;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #filters input, #filters select, #mobileSortBar select {
+            padding: 12px 14px; 
+            border: 2px solid var(--primary-light); 
+            border-radius: 8px; 
+            font-size: 16px; /* 16px+ prevents iOS auto-zoom on focus */
+            background: white;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Lato', Arial, sans-serif;
+            min-height: 48px; /* comfortable touch target */
+        }
+
+        #filters input:focus, #filters select:focus, #mobileSortBar select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        /* ==================== YIELD RANGE SLIDER ==================== */
+        #yieldSliderBlock {
+            max-width: 1700px;
+            margin: 0 auto 24px;
+            padding: 22px 28px 12px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .yield-slider-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            margin-bottom: 6px;
+        }
+
+        .yield-readout {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .yield-readout span {
+            color: var(--accent);
+        }
+
+        .yield-match-count {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .yield-match-count strong {
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .range-wrap {
+            position: relative;
+            height: 46px;
+            margin: 4px 0 0;
+        }
+
+        .range-track {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(20, 184, 166, 0.16);
+            border-radius: 4px;
+        }
+
+        .range-fill {
+            position: absolute;
+            top: 20px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+
+        .range-wrap input[type="range"] {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            margin: 0;
+            padding: 0;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .range-wrap input[type="range"]:focus {
+            outline: none;
+        }
+
+        .range-wrap input[type="range"]::-webkit-slider-runnable-track {
+            background: none;
+            border: none;
+            height: 32px;
+        }
+
+        .range-wrap input[type="range"]::-moz-range-track {
+            background: none;
+            border: none;
+            height: 32px;
+        }
+
+        .range-wrap input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            pointer-events: auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(15, 118, 110, 0.35);
+            cursor: grab;
+            margin-top: 3px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .range-wrap input[type="range"]::-moz-range-thumb {
+            pointer-events: auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(15, 118, 110, 0.35);
+            cursor: grab;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .range-wrap input[type="range"]:hover::-webkit-slider-thumb,
+        .range-wrap input[type="range"]:focus-visible::-webkit-slider-thumb {
+            border-color: var(--accent);
+            transform: scale(1.12);
+        }
+
+        .range-wrap input[type="range"]:hover::-moz-range-thumb,
+        .range-wrap input[type="range"]:focus-visible::-moz-range-thumb {
+            border-color: var(--accent);
+            transform: scale(1.12);
+        }
+
+        .range-wrap input[type="range"]:focus-visible::-webkit-slider-thumb {
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.35);
+        }
+
+        .range-wrap input[type="range"]:focus-visible::-moz-range-thumb {
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.35);
+        }
+
+        #yieldMin { z-index: 3; }
+        #yieldMax { z-index: 4; }
+
+        .range-scale {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-top: -2px;
+            padding-bottom: 10px;
+        }
+
+        .range-hint {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-light);
+            text-align: center;
+            padding-bottom: 8px;
+        }
+
+        #resetFilters {
+            padding: 14px 28px; 
+            background: linear-gradient(135deg, #10B981, #0F766E); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            display: inline-block;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #resetFilters:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        /* ==================== WATCHLIST TOGGLE BUTTON ==================== */
+        #watchlistToggle {
+            padding: 14px 28px;
+            background: white;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-light);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            min-height: 48px;
+            font-family: 'Lato', Arial, sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+            display: inline-block;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #watchlistToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(20, 184, 166, 0.25);
+        }
+
+        #watchlistToggle.active {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: white;
+            border-color: #D97706;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+        }
+
+        .action-bar {
+            text-align: center;
+            margin: 20px 0 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* ==================== WATCH STAR ==================== */
+        .watch-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 1;
+            padding: 6px;
+            color: #CBD5E1;
+            transition: transform 0.15s ease, color 0.15s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .watch-btn:hover {
+            transform: scale(1.25);
+            color: #F59E0B;
+        }
+
+        .watch-btn.watched {
+            color: #F59E0B;
+        }
+
+        .watch-btn.watched:hover {
+            color: #D97706;
+        }
+
+        td.watch-cell {
+            width: 54px;
+        }
+
+        /* ==================== ANNUALIZED RETURN CELL ==================== */
+        td.annualized {
+            font-weight: 700;
+        }
+        td.annualized.ann-na {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Mobile-only sort control (table headers are hidden on mobile) */
+        #mobileSortBar {
+            display: none;
+            max-width: 1700px;
+            margin: 0 auto 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        #mobileSortBar .filter-label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        #mobileSortBar select {
+            width: 100%;
+        }
+
+        /* Scroll wrapper keeps the wide table usable on tablets */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        #etfTable {
+            width: 100%; 
+            border-collapse: collapse; 
+            background: white;
+            border: 2px solid var(--primary-light); 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(15, 118, 110, 0.15);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff; 
+            padding: 16px 8px; 
+            cursor: pointer; 
+            font-size: 0.95em; 
+            white-space: nowrap;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            user-select: none;
+            -webkit-user-select: none;
+            border-bottom: 2px solid rgba(20, 184, 166, 0.3);
+        }
+
+        th.no-sort {
+            cursor: default;
+        }
+
+        th:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+        }
+
+        td { 
+            padding: 14px 8px; 
+            text-align: center; 
+            font-size: 0.98em;
+            border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+        }
+
+        tr:nth-child(even) { 
+            background: rgba(20, 184, 166, 0.03); 
+        }
+
+        tr:hover { 
+            background: rgba(20, 184, 166, 0.08);
+            transition: all 0.2s ease;
+        }
+
+        .symbol { 
+            font-weight: 900; 
+            font-size: 1.25em; 
+            color: var(--primary-dark);
+        }
+
+        .name { 
+            text-align: left; 
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .rating-a { color: #10B981; font-weight: 900; }
+        .rating-b { color: #06B6D4; font-weight: 900; }
+        .rating-c { color: #FCD34D; font-weight: 900; }
+        .rating-d { color: #F97316; font-weight: 900; }
+        .rating-f { color: #EF4444; font-weight: 900; }
+
+        .tax-a { background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+        .tax-b { background: rgba(6, 182, 212, 0.15); color: #06B6D4; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+        .tax-c { background: rgba(252, 211, 77, 0.15); color: #FBBF24; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+        .tax-d { background: rgba(249, 115, 22, 0.15); color: #F97316; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+        .tax-f { background: rgba(239, 68, 68, 0.15); color: #EF4444; padding: 4px 8px; border-radius: 6px; font-weight: 700; }
+
+        /* Empty watchlist message */
+        .empty-watchlist {
+            padding: 50px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+        .empty-watchlist .big { font-size: 2.2em; display: block; margin-bottom: 10px; }
+
+        /* ==================== TABLET (769px – 1100px) ==================== */
+        /* Table stays a table but scrolls horizontally instead of crushing columns */
+        @media (min-width: 769px) and (max-width: 1100px) {
+            #etfTable {
+                min-width: 1250px;
+            }
+
+            th {
+                padding: 14px 10px;
+            }
+        }
+
+        /* ==================== MOBILE (≤768px) ==================== */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 16px;
+            }
+
+            .hero {
+                padding: 36px 18px;
+                margin-bottom: 24px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .content {
+                width: 100%;
+                padding: 0 14px;
+            }
+
+            .trends-cta {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+                padding: 22px 18px;
+            }
+
+            .trends-cta-text strong {
+                font-size: 19px;
+            }
+
+            .trends-cta-text small {
+                font-size: 14px;
+            }
+
+            .trends-cta-go {
+                width: 100%;
+                justify-content: center;
+            }
+
+            #filters {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 16px;
+                padding: 18px 16px;
+                margin: 20px auto;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            #filters input, #filters select {
+                width: 100%;
+            }
+
+            /* Yield slider gets a little more breathing room on phones */
+            #yieldSliderBlock {
+                padding: 20px 18px 10px;
+                margin-bottom: 18px;
+            }
+
+            .yield-slider-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .yield-readout {
+                font-size: 23px;
+            }
+
+            .range-wrap {
+                height: 52px;
+            }
+
+            .range-wrap input[type="range"]::-webkit-slider-thumb {
+                width: 30px;
+                height: 30px;
+            }
+
+            .range-wrap input[type="range"]::-moz-range-thumb {
+                width: 30px;
+                height: 30px;
+            }
+
+            .action-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #resetFilters, #watchlistToggle {
+                width: 100%;
+            }
+
+            /* Show the mobile sort control since table headers are hidden */
+            #mobileSortBar {
+                display: block;
+            }
+
+            .table-wrap {
+                overflow-x: visible;
+                margin-bottom: 24px;
+            }
+
+            #etfTable {
+                border: none;
+                box-shadow: none;
+                background: transparent;
+                display: block;
+            }
+
+            thead { display: none; }
+            tbody { display: block; }
+            
+            tr { 
+                display: flex; 
+                flex-direction: column; 
+                margin: 0 0 14px; 
+                padding: 16px; 
+                border-radius: 10px; 
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                border: 1px solid rgba(20, 184, 166, 0.2);
+                background: white;
+                position: relative;
+            }
+            
+            tr:nth-child(even) {
+                background: white;
+            }
+
+            tr:hover {
+                background: rgba(20, 184, 166, 0.05);
+            }
+            
+            td { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 4px 12px;
+                padding: 9px 0;
+                text-align: right;
+                font-size: 15px;
+                border-bottom: 1px solid rgba(20, 184, 166, 0.08);
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+            
+            td:before { 
+                content: attr(data-label); 
+                font-weight: 700; 
+                color: var(--primary-dark); 
+                flex: 0 0 auto;
+                min-width: 0;
+                text-align: left;
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 0.4px;
+            }
+
+            /* Symbol becomes the card header */
+            td.symbol {
+                justify-content: flex-start;
+                font-size: 1.4em;
+                padding-top: 0;
+                border-bottom: none;
+                padding-right: 48px; /* room for the pinned star */
+            }
+
+            td.symbol:before {
+                display: none;
+            }
+
+            /* Name sits directly under the symbol, full width, wraps cleanly */
+            td.name {
+                justify-content: flex-start;
+                text-align: left;
+                padding-top: 0;
+                padding-bottom: 12px;
+                margin-bottom: 6px;
+                border-bottom: 2px solid rgba(20, 184, 166, 0.15);
+                word-break: break-word;
+            }
+
+            td.name:before {
+                display: none;
+            }
+
+            /* Watch star pins to the top-right corner of the card */
+            td.watch-cell {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: auto;
+                padding: 0;
+                border-bottom: none;
+            }
+
+            td.watch-cell:before {
+                display: none;
+            }
+
+            .watch-btn {
+                font-size: 28px;
+                padding: 8px;
+            }
+
+            /* No-results row shouldn't render as a card */
+            tr.no-results-row {
+                box-shadow: none;
+                border: none;
+                background: transparent;
+            }
+
+            .disclaimer {
+                margin: 30px auto 20px;
+                padding: 18px 16px;
+                font-size: 0.85em;
+            }
+
+            footer {
+                margin: 24px auto 20px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            footer p:first-child {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px 10px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            td {
+                font-size: 14px;
+            }
+
+            .yield-readout {
+                font-size: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        .no-results {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .disclaimer {
+            font-size: 0.9em; 
+            color: var(--text-light); 
+            max-width: 900px; 
+            margin: 50px auto 30px; 
+            text-align: center; 
+            line-height: 1.5;
+            padding: 25px;
+            background: rgba(20, 184, 166, 0.05);
+            border-left: 4px solid var(--primary-light);
+            border-radius: 8px;
+        }
+
+        footer {
+            margin: 40px auto 30px; 
+            padding-top: 15px; 
+            border-top: 1px solid rgba(20, 184, 166, 0.2);
+            text-align: center; 
+            color: var(--text-light); 
+            font-size: 0.9em; 
+            max-width: 900px;
+        }
+
+        footer a { 
+            color: var(--primary-dark); 
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="logo">YieldAtlas PRO 📈🏆 </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>YieldAtlas PRO Terminal</h1>
+            <p class="hero-subtitle">
+                Advanced analytics & accurate data updated daily for serious dividend income investors. Filter, sort, and analyze the best dividend ETFs with real-time insights.
+            </p>
+            
+            <p style="margin-top: 25px; font-size: 17px; font-weight: 700; color: rgba(255,255,255,0.95);">
+                To learn more about what this data means and everything you need to know check out our 
+                <a href="faq.html" style="color: #fff; text-decoration: underline;">FAQ page here</a>
+            </p>
+        </div>
+    </div>
+        <p class="disclaimer">
+            <strong>📌 Disclaimer:</strong> This platform is for informational and educational purposes only. 
+            It does not constitute financial, investment, or tax advice. Past performance is not indicative of future results. 
+            Always consult a qualified financial advisor before making any investment decisions.
+        </p>
+    <div class="content">
+        <!-- ==================== YIELD & RETURN TRENDS CTA ==================== -->
+        <a href="trends.html" class="trends-cta">
+            <span class="trends-cta-icon">📊</span>
+            <span class="trends-cta-text">
+                <strong>Yield &amp; Return Trends</strong>
+                <small>See exactly which funds raised or cut distributions &mdash; 7, 14, 30 day and all-time movers, with a trend line on every fund.</small>
+            </span>
+            <span class="trends-cta-go">Open Trends &rarr;</span>
+        </a>
+
+        <!-- ==================== FILTERS ==================== -->
+        <div id="filters">
+            <div class="filter-group">
+                <span class="filter-label">🔍 Search</span>
+                <input type="text" id="searchFilter" placeholder="Ticker or name...">
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">📊 Yield Presets</span>
+                <select id="yieldRangeFilter">
+                    <option value="">Custom Range</option>
+                    <option value="0-5">0–5%</option>
+                    <option value="5-10">5–10%</option>
+                    <option value="10-15">10–15%</option>
+                    <option value="15-25">15–25%</option>
+                    <option value="25+">25%+</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">💸 Payout Frequency</span>
+                <select id="payoutFilter">
+                    <option value="">All Frequencies</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">🏦 Tax Grade</span>
+                <select id="taxGradeFilter">
+                    <option value="">All Grades</option>
+                    <option value="A">Grade A</option>
+                    <option value="B">Grade B</option>
+                    <option value="C">Grade C</option>
+                    <option value="D">Grade D</option>
+                    <option value="F">Grade F</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">📉 Price Decay</span>
+                <select id="priceDecayFilter">
+                    <option value="">All</option>
+                    <option value="yes">YES</option>
+                    <option value="no">NO</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">⏰ ETF Age</span>
+                <select id="ageFilter">
+                    <option value="">All Ages</option>
+                    <option value="under1">Under 1 Year</option>
+                    <option value="under2">Under 2 Years</option>
+                    <option value="under3">Under 3 Years</option>
+                    <option value="under5">Under 5 Years</option>
+                    <option value="1-2">1–2 Years (exact)</option>
+                    <option value="2-3">2–3 Years (exact)</option>
+                    <option value="3-4">3–4 Years (exact)</option>
+                    <option value="4-5">4–5 Years (exact)</option>
+                    <option value="5plus">5+ Years</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ==================== YIELD RANGE SLIDER ==================== -->
+        <div id="yieldSliderBlock">
+            <div class="yield-slider-head">
+                <div class="yield-readout">Yield range: <span id="yieldReadout">0% – 0%</span></div>
+                <div class="yield-match-count"><strong id="yieldMatchCount">0</strong> ETFs match your filters</div>
+            </div>
+
+            <div class="range-wrap">
+                <div class="range-track"></div>
+                <div class="range-fill" id="yieldFill"></div>
+                <input type="range" id="yieldMin" min="0" max="100" step="0.5" value="0" aria-label="Minimum dividend yield">
+                <input type="range" id="yieldMax" min="0" max="100" step="0.5" value="100" aria-label="Maximum dividend yield">
+            </div>
+
+            <div class="range-scale">
+                <span>0%</span>
+                <span id="yieldScaleMax">—</span>
+            </div>
+
+            <p class="range-hint">Drag either handle to screen by exact yield. The top of the scale is set by the highest yielding ETF in the database.</p>
+        </div>
+
+        <!-- Centered Action Buttons -->
+        <div class="action-bar">
+            <button id="watchlistToggle">⭐ My Watchlist (<span id="watchCount">0</span>)</button>
+            <button id="resetFilters">🔄 Reset Filters</button>
+        </div>
+
+        <!-- ==================== MOBILE SORT (visible only on phones) ==================== -->
+        <div id="mobileSortBar">
+            <span class="filter-label">↕️ Sort By</span>
+            <select id="mobileSortSelect">
+                <option value="3-desc">Dividend Yield (High → Low)</option>
+                <option value="3-asc">Dividend Yield (Low → High)</option>
+                <option value="0-asc">Symbol (A → Z)</option>
+                <option value="0-desc">Symbol (Z → A)</option>
+                <option value="5-asc">Expense Ratio (Low → High)</option>
+                <option value="5-desc">Expense Ratio (High → Low)</option>
+                <option value="6-desc">AUM (High → Low)</option>
+                <option value="7-desc">Total Return (High → Low)</option>
+                <option value="8-desc">Annualized Return (High → Low)</option>
+                <option value="10-desc">Inception Date (Newest First)</option>
+                <option value="10-asc">Inception Date (Oldest First)</option>
+                <option value="11-asc">Payout Frequency (Weekly First)</option>
+                <option value="12-asc">Rating (Best First)</option>
+            </select>
+        </div>
+
+        <!-- ==================== TABLE ==================== -->
+        <div class="table-wrap">
+            <table id="etfTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Symbol ↕</th>
+                        <th onclick="sortTable(1)">Name ↕</th>
+                        <th onclick="sortTable(2)">Fund Provider ↕</th>
+                        <th onclick="sortTable(3)">Dividend Yield ↕</th>
+                        <th onclick="sortTable(4)">Tax Grade ↕</th>
+                        <th onclick="sortTable(5)">Expense Ratio ↕</th>
+                        <th onclick="sortTable(6)">AUM ↕</th>
+                        <th onclick="sortTable(7)">Total Return ↕</th>
+                        <th onclick="sortTable(8)">Annualized ↕</th>
+                        <th onclick="sortTable(9)">Price Decay ↕</th>
+                        <th onclick="sortTable(10)">Inception Date ↕</th>
+                        <th onclick="sortTable(11)">Payout Frequency ↕</th>
+                        <th onclick="sortTable(12)">Rating ↕</th>
+                        <th class="no-sort">⭐ Watch</th>
+                    </tr>
+                </thead>
+                <tbody id="etfBody"></tbody>
+            </table>
+        </div>
+
+        <!-- ==================== DISCLAIMER ==================== -->
+        <p class="disclaimer">
+            <strong>📌 Disclaimer:</strong> This platform is for informational and educational purposes only. 
+            It does not constitute financial, investment, or tax advice. Past performance is not indicative of future results. 
+            Always consult a qualified financial advisor before making any investment decisions.
+        </p>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer>
+            <p>
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="terms.html">Terms of Service</a> | 
+                <a href="about.html">About Us</a> |
+                <a href="disclaimer.html">Disclaimer</a> |
+                <a href="mailto:advertise@mrvn.me">Contact</a>
+            </p>
+            <p>&copy; 2026 YieldAtlas Pro. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const CSV_URL = "data/seed.csv";
+
+        // How many years an ETF must have existed before we show an annualized figure.
+        // Below this, annualizing a short track record produces misleading numbers,
+        // so we display "N/A (<1yr)". Change this one number to adjust the threshold.
+        const ANNUALIZED_MIN_YEARS = 1;
+
+        let allRows = [];
+
+        // ==================== YIELD RANGE SLIDER STATE ====================
+        const YIELD_STEP = 0.5;
+        let yieldCeiling = 100;      // top of the slider scale, set from the data
+        let syncingPreset = false;   // stops preset <-> slider updates from looping
+
+        // ==================== WATCHLIST ====================
+        const WATCHLIST_KEY = 'tdep_watchlist';
+        let watchlist = [];
+        let watchlistOnly = false;
+
+        function loadWatchlist() {
+            try {
+                const stored = localStorage.getItem(WATCHLIST_KEY);
+                watchlist = stored ? JSON.parse(stored) : [];
+                if (!Array.isArray(watchlist)) watchlist = [];
+            } catch (e) {
+                watchlist = [];
+            }
+        }
+
+        function saveWatchlist() {
+            try {
+                localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist));
+            } catch (e) {
+                // localStorage unavailable (private mode etc.) — watchlist still works for this session
+            }
+        }
+
+        function isWatched(symbol) {
+            return watchlist.includes(symbol);
+        }
+
+        function toggleWatch(symbol, btn) {
+            const idx = watchlist.indexOf(symbol);
+            if (idx === -1) {
+                watchlist.push(symbol);
+                btn.classList.add('watched');
+                btn.textContent = '★';
+                btn.setAttribute('aria-label', 'Remove ' + symbol + ' from watchlist');
+            } else {
+                watchlist.splice(idx, 1);
+                btn.classList.remove('watched');
+                btn.textContent = '☆';
+                btn.setAttribute('aria-label', 'Add ' + symbol + ' to watchlist');
+            }
+            saveWatchlist();
+            updateWatchCount();
+            if (watchlistOnly) applyFilters();
+        }
+
+        function updateWatchCount() {
+            document.getElementById('watchCount').textContent = watchlist.length;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWatchlist();
+            updateWatchCount();
+            loadData();
+        });
+
+        function loadData() {
+            fetch(CSV_URL + '&t=' + Date.now())
+                .then(r => r.text())
+                .then(txt => renderTable(txt))
+                .catch(() => {
+                    document.getElementById('etfBody').innerHTML = `
+                        <tr><td colspan="14" style="padding:40px; color:red; text-align:center; font-weight:700;">
+                            ⚠️ Unable to load ETF data. Please refresh the page.
+                        </td></tr>`;
+                });
+        }
+
+        // ==================== ANNUALIZED TOTAL RETURN (CAGR) ====================
+        // Takes the since-inception Total Return and the inception date, returns the
+        // compound annual growth rate. Returns null when it can't be computed.
+        function computeAnnualized(totalReturnStr, inceptionStr) {
+            const tr = parseFloat(String(totalReturnStr).replace('%', '').trim());
+            if (isNaN(tr)) return null;
+
+            const inc = new Date(normalizeDate(inceptionStr));
+            if (isNaN(inc.getTime())) return null;
+
+            const years = (Date.now() - inc.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+            if (years <= 0) return null;
+
+            const growth = 1 + tr / 100;
+            if (growth <= 0) return null; // guard against bad "down >100%" data
+
+            return { value: (Math.pow(growth, 1 / years) - 1) * 100, years };
+        }
+
+        function renderTable(csvText) {
+            const lines = csvText.trim().split('\n');
+            const tbody = document.getElementById('etfBody');
+            tbody.innerHTML = '';
+
+            let successCount = 0;
+            let skipCount = 0;
+
+            for (let i = 1; i < lines.length; i++) {
+                const cols = lines[i].split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+
+                if (cols.length < 12 || !cols[0]) {
+                    skipCount++;
+                    continue;
+                }
+
+                const tr = document.createElement('tr');
+
+                cols.forEach((value, index) => {
+                    if (index > 11) return; // only the 12 data columns
+                    const td = document.createElement('td');
+                    const labels = [
+                        'Symbol','Name','Fund Provider','Dividend Yield','Tax Treatment Grade',
+                        'Expense Ratio','AUM','Total Return','Price Decay','Inception Date',
+                        'Payout Frequency','Rating'
+                    ];
+                    td.setAttribute('data-label', labels[index]);
+
+                    if (index === 0) td.className = 'symbol';
+                    if (index === 1) td.className = 'name';
+                    
+                    if (index === 4) {
+                        const grade = value.toUpperCase();
+                        td.className = `tax-${grade.toLowerCase()}`;
+                    }
+
+                    if (index === 11) {
+                        const rating = value.toUpperCase();
+                        td.className = `rating-${rating.toLowerCase()}`;
+                    }
+
+                    td.textContent = value || '-';
+                    tr.appendChild(td);
+
+                    // Insert Annualized directly after Total Return (CSV index 7)
+                    if (index === 7) {
+                        const annTd = document.createElement('td');
+                        annTd.setAttribute('data-label', 'Annualized');
+                        const ann = computeAnnualized(cols[7], cols[9]);
+                        if (ann === null) {
+                            annTd.className = 'annualized ann-na';
+                            annTd.textContent = '-';
+                        } else {
+                            annTd.className = 'annualized';
+                            annTd.textContent = ann.value.toFixed(1) + '%';
+                            if (ann.years < ANNUALIZED_MIN_YEARS) {
+                                annTd.title = 'Annualized from under 1 year of trading — extrapolated from a short track record.';
+                            }
+                        }
+                        tr.appendChild(annTd);
+                    }
+                });
+
+
+                // ==================== WATCH CELL (last column) ====================
+                const symbol = cols[0];
+                const watchTd = document.createElement('td');
+                watchTd.className = 'watch-cell';
+                watchTd.setAttribute('data-label', 'Watchlist');
+                const watchBtn = document.createElement('button');
+                watchBtn.className = 'watch-btn' + (isWatched(symbol) ? ' watched' : '');
+                watchBtn.type = 'button';
+                watchBtn.textContent = isWatched(symbol) ? '★' : '☆';
+                watchBtn.setAttribute('aria-label', (isWatched(symbol) ? 'Remove ' : 'Add ') + symbol + (isWatched(symbol) ? ' from watchlist' : ' to watchlist'));
+                watchBtn.title = 'Add/remove from watchlist';
+                watchBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleWatch(symbol, watchBtn);
+                });
+                watchTd.appendChild(watchBtn);
+                tr.appendChild(watchTd);
+
+                tbody.appendChild(tr);
+                allRows.push(tr);
+                successCount++;
+            }
+
+            if (allRows.length === 0) {
+                tbody.innerHTML = '<tr class="no-results-row"><td colspan="14" class="no-results">No ETF data available.</td></tr>';
+                document.getElementById('yieldSliderBlock').style.display = 'none';
+            } else {
+                initYieldSlider();
+                sortTable(3, 'desc');
+            }
+        }
+
+        // ==================== YIELD SLIDER ====================
+        // Scale runs 0% → the highest yield in the loaded data (rounded up to a clean number)
+        function initYieldSlider() {
+            let highest = 0;
+            allRows.forEach(tr => {
+                const v = parseFloat(tr.cells[3].textContent);
+                if (!isNaN(v) && v > highest) highest = v;
+            });
+
+            // Round up to the next whole percent so the top ETF is always reachable
+            yieldCeiling = Math.max(1, Math.ceil(highest));
+
+            const minEl = document.getElementById('yieldMin');
+            const maxEl = document.getElementById('yieldMax');
+
+            [minEl, maxEl].forEach(el => {
+                el.min = 0;
+                el.max = yieldCeiling;
+                el.step = YIELD_STEP;
+            });
+
+            minEl.value = 0;
+            maxEl.value = yieldCeiling;
+
+            document.getElementById('yieldScaleMax').textContent = yieldCeiling + '%';
+            updateYieldUI();
+        }
+
+        function getYieldRange() {
+            const minEl = document.getElementById('yieldMin');
+            const maxEl = document.getElementById('yieldMax');
+            let lo = parseFloat(minEl.value);
+            let hi = parseFloat(maxEl.value);
+            if (isNaN(lo)) lo = 0;
+            if (isNaN(hi)) hi = yieldCeiling;
+            return { lo, hi };
+        }
+
+        // Keeps the two handles from crossing each other
+        function clampHandles(changed) {
+            const minEl = document.getElementById('yieldMin');
+            const maxEl = document.getElementById('yieldMax');
+            let lo = parseFloat(minEl.value);
+            let hi = parseFloat(maxEl.value);
+
+            if (lo > hi) {
+                if (changed === 'min') {
+                    minEl.value = hi;
+                } else {
+                    maxEl.value = lo;
+                }
+            }
+        }
+
+        function formatPct(n) {
+            return (Math.round(n * 10) / 10).toString().replace(/\.0$/, '') + '%';
+        }
+
+        function updateYieldUI() {
+            const { lo, hi } = getYieldRange();
+            const span = yieldCeiling || 1;
+            const leftPct = (lo / span) * 100;
+            const rightPct = (hi / span) * 100;
+
+            const fill = document.getElementById('yieldFill');
+            fill.style.left = leftPct + '%';
+            fill.style.width = Math.max(0, rightPct - leftPct) + '%';
+
+            document.getElementById('yieldReadout').textContent = formatPct(lo) + ' – ' + formatPct(hi);
+        }
+
+        function setYieldRange(lo, hi) {
+            const minEl = document.getElementById('yieldMin');
+            const maxEl = document.getElementById('yieldMax');
+            minEl.value = Math.max(0, Math.min(lo, yieldCeiling));
+            maxEl.value = Math.max(0, Math.min(hi, yieldCeiling));
+            updateYieldUI();
+            applyFilters();
+        }
+
+        let sortDirections = {};
+        function sortTable(col, forceDir) {
+            const tbody = document.getElementById('etfBody');
+            const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.cells.length > col);
+            
+            if (rows.length === 0) return;
+
+            const dir = forceDir || (sortDirections[col] === 'asc' ? 'desc' : 'asc');
+            sortDirections[col] = dir;
+
+            rows.sort((a, b) => {
+                let valA = a.cells[col].textContent.trim();
+                let valB = b.cells[col].textContent.trim();
+
+                if (col === 10) {
+                    const dateA = new Date(normalizeDate(valA));
+                    const dateB = new Date(normalizeDate(valB));
+                    if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+                        return dir === 'asc' ? dateA - dateB : dateB - dateA;
+                    }
+                }
+
+                if (col === 11) {
+                    const order = { 'weekly': 1, 'monthly': 2, 'quarterly': 3 };
+                    const orderA = order[valA.toLowerCase()] || 99;
+                    const orderB = order[valB.toLowerCase()] || 99;
+                    return dir === 'asc' ? orderA - orderB : orderB - orderA;
+                }
+
+                // Column 8 (Annualized): numeric sort, but push non-computable
+                // rows ("N/A", "-") to the bottom regardless of direction.
+                if (col === 8) {
+                    const numA = parseFloat(valA);
+                    const numB = parseFloat(valB);
+                    const aBad = isNaN(numA);
+                    const bBad = isNaN(numB);
+                    if (aBad && bBad) return 0;
+                    if (aBad) return 1;
+                    if (bBad) return -1;
+                    return dir === 'asc' ? numA - numB : numB - numA;
+                }
+
+                if (!isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB))) {
+                    return dir === 'asc' ? parseFloat(valA) - parseFloat(valB) : parseFloat(valB) - parseFloat(valA);
+                }
+
+                return dir === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+            applyFilters();
+        }
+
+        // Normalize date strings like MM/DD/YYYY or M/D/YY into YYYY-MM-DD for reliable parsing
+        function normalizeDate(str) {
+            if (!str || str === '-') return '';
+            // Handle MM/DD/YYYY or M/D/YY
+            const slashMatch = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+            if (slashMatch) {
+                let [ , m, d, y ] = slashMatch;
+                if (y.length === 2) y = '20' + y;
+                return `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+            }
+            // Handle MM-DD-YYYY or M-D-YY
+            const dashMatch = str.match(/^(\d{1,2})-(\d{1,2})-(\d{2,4})$/);
+            if (dashMatch) {
+                let [ , m, d, y ] = dashMatch;
+                if (y.length === 2) y = '20' + y;
+                return `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+            }
+            // Return as-is for formats like "Jan 15, 2024" or "2024-01-15" which Date() handles fine
+            return str;
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchFilter').value.toLowerCase().trim();
+            const payoutFilter = document.getElementById('payoutFilter').value.toLowerCase();
+            const taxGradeFilter = document.getElementById('taxGradeFilter').value;
+            const priceDecayFilter = document.getElementById('priceDecayFilter').value;
+            const ageFilter = document.getElementById('ageFilter').value;
+            const { lo: yieldMinVal, hi: yieldMaxVal } = getYieldRange();
+
+            let visibleCount = 0;
+            const today = new Date();
+
+            allRows.forEach(tr => {
+                const symbol = tr.cells[0].textContent.toLowerCase();
+                const name = tr.cells[1].textContent.toLowerCase();
+                const yieldValue = parseFloat(tr.cells[3].textContent) || 0;
+                const taxGrade = tr.cells[4].textContent.trim().toUpperCase();
+                const priceDecay = tr.cells[9].textContent.trim().toUpperCase();
+                const inceptionStr = tr.cells[10].textContent.trim();
+                const payoutFrequency = tr.cells[11].textContent.trim().toLowerCase();
+
+                let visible = true;
+
+                // Watchlist-only mode
+                if (watchlistOnly && !isWatched(tr.cells[0].textContent.trim())) visible = false;
+
+                if (visible && searchTerm && !symbol.includes(searchTerm) && !name.includes(searchTerm)) visible = false;
+
+                // Yield range slider — top handle at the ceiling means "no upper limit"
+                if (visible) {
+                    if (yieldValue < yieldMinVal) visible = false;
+                    else if (yieldMaxVal < yieldCeiling && yieldValue > yieldMaxVal) visible = false;
+                }
+
+                if (visible && payoutFilter && !payoutFrequency.includes(payoutFilter)) visible = false;
+
+                if (visible && taxGradeFilter && !taxGrade.includes(taxGradeFilter)) visible = false;
+
+                if (visible && priceDecayFilter) {
+                    if (priceDecayFilter === 'yes' && priceDecay !== 'YES') visible = false;
+                    if (priceDecayFilter === 'no' && priceDecay !== 'NO') visible = false;
+                }
+
+                if (visible && ageFilter && inceptionStr && inceptionStr !== '-') {
+                    const normalized = normalizeDate(inceptionStr);
+                    const inceptionDate = new Date(normalized);
+
+                    if (isNaN(inceptionDate.getTime())) {
+                        visible = false;
+                    } else {
+                        const ageInYears = (today - inceptionDate) / (1000 * 60 * 60 * 24 * 365.25);
+                        let ageMatches = false;
+
+                        if      (ageFilter === 'under1' && ageInYears < 1)                     ageMatches = true;
+                        else if (ageFilter === 'under2' && ageInYears < 2)                     ageMatches = true;
+                        else if (ageFilter === 'under3' && ageInYears < 3)                     ageMatches = true;
+                        else if (ageFilter === 'under5' && ageInYears < 5)                     ageMatches = true;
+                        else if (ageFilter === '1-2'   && ageInYears >= 1 && ageInYears < 2)  ageMatches = true;
+                        else if (ageFilter === '2-3'   && ageInYears >= 2 && ageInYears < 3)  ageMatches = true;
+                        else if (ageFilter === '3-4'   && ageInYears >= 3 && ageInYears < 4)  ageMatches = true;
+                        else if (ageFilter === '4-5'   && ageInYears >= 4 && ageInYears < 5)  ageMatches = true;
+                        else if (ageFilter === '5plus' && ageInYears >= 5)                     ageMatches = true;
+
+                        if (!ageMatches) visible = false;
+                    }
+                }
+
+                tr.style.display = visible ? '' : 'none';
+                if (visible) visibleCount++;
+            });
+
+            const matchEl = document.getElementById('yieldMatchCount');
+            if (matchEl) matchEl.textContent = visibleCount;
+
+            const tbody = document.getElementById('etfBody');
+            const existingNoResults = tbody.querySelector('.no-results, .empty-watchlist');
+            if (visibleCount === 0) {
+                if (!existingNoResults) {
+                    const noRow = document.createElement('tr');
+                    noRow.className = 'no-results-row';
+                    if (watchlistOnly && watchlist.length === 0) {
+                        noRow.innerHTML = '<td colspan="14" class="empty-watchlist"><span class="big">⭐</span>Your watchlist is empty.<br>Tap the ☆ star on any ETF to add it — your list saves automatically on this device.</td>';
+                    } else {
+                        noRow.innerHTML = '<td colspan="14" class="no-results">No ETFs match your filters. Try widening the yield range or clearing a filter.</td>';
+                    }
+                    tbody.appendChild(noRow);
+                }
+            } else if (existingNoResults) {
+                const parentRow = existingNoResults.closest('tr');
+                if (parentRow) parentRow.parentNode.removeChild(parentRow);
+            }
+        }
+
+        document.getElementById('searchFilter').addEventListener('input', applyFilters);
+        document.getElementById('payoutFilter').addEventListener('change', applyFilters);
+        document.getElementById('taxGradeFilter').addEventListener('change', applyFilters);
+        document.getElementById('priceDecayFilter').addEventListener('change', applyFilters);
+        document.getElementById('ageFilter').addEventListener('change', applyFilters);
+        document.getElementById('resetFilters').addEventListener('click', () => location.reload());
+
+        // Yield slider handles → live filtering
+        document.getElementById('yieldMin').addEventListener('input', () => {
+            clampHandles('min');
+            updateYieldUI();
+            if (!syncingPreset) document.getElementById('yieldRangeFilter').value = '';
+            applyFilters();
+        });
+
+        document.getElementById('yieldMax').addEventListener('input', () => {
+            clampHandles('max');
+            updateYieldUI();
+            if (!syncingPreset) document.getElementById('yieldRangeFilter').value = '';
+            applyFilters();
+        });
+
+        // Preset dropdown → moves the slider handles
+        document.getElementById('yieldRangeFilter').addEventListener('change', (e) => {
+            const preset = e.target.value;
+            syncingPreset = true;
+
+            if (!preset) {
+                setYieldRange(0, yieldCeiling);
+            } else if (preset === '25+') {
+                setYieldRange(25, yieldCeiling);
+            } else {
+                const [lo, hi] = preset.split('-').map(Number);
+                setYieldRange(lo, hi);
+            }
+
+            syncingPreset = false;
+        });
+
+        // Watchlist toggle → filter to starred ETFs only
+        document.getElementById('watchlistToggle').addEventListener('click', () => {
+            watchlistOnly = !watchlistOnly;
+            const btn = document.getElementById('watchlistToggle');
+            btn.classList.toggle('active', watchlistOnly);
+            btn.innerHTML = (watchlistOnly ? '⭐ Showing Watchlist (' : '⭐ My Watchlist (') + '<span id="watchCount">' + watchlist.length + '</span>)';
+            applyFilters();
+        });
+
+        // Mobile sort dropdown → drives the same sortTable() logic
+        document.getElementById('mobileSortSelect').addEventListener('change', (e) => {
+            const [col, dir] = e.target.value.split('-');
+            sortTable(parseInt(col, 10), dir);
+        });
+    </script>
+</body>
+</html>
