@@ -61,7 +61,7 @@ function todayCentral() {
 }
 
 async function main() {
-  const res = await fetch(CSV_URL + '&t=' + Date.now());
+  const res = await fetch(CSV_URL + '?t=' + Date.now());
   if (!res.ok) throw new Error('Failed to fetch CSV: ' + res.status);
   const csvText = await res.text();
   const rows = parseCsv(csvText);

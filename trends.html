@@ -387,7 +387,7 @@ Promise.all([
     if(!r.ok){ histError='HTTP '+r.status+' fetching '+HISTORY_PATH; return null; }
     return r.json().catch(function(e){ histError='File found but is not valid JSON ('+e.message+')'; return null; });
   }).catch(function(e){ histError='Network error: '+e.message; return null; }),
-  fetch(CSV_URL+'&t='+Date.now()).then(function(r){ return r.ok?r.text():''; }).catch(function(){ return ''; })
+  fetch(CSV_URL + '?t='+Date.now()).then(function(r){ return r.ok?r.text():''; }).catch(function(){ return ''; })
 ]).then(function(res){
   if(res[1]){
     var lines=res[1].trim().split('\n');
